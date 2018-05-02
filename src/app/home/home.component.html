@@ -1,33 +1,33 @@
-<ngb-tabset >
+<ngb-tabset #t="ngbTabset">
   <ngb-tab>
-  <ng-template ngbTabTitle><img src="../assets/Images/Logo1.jpg" style="width:150px; height:30px;" alt="Sample Image" /></ng-template>
+  <ng-template id="hi" ngbTabTitle><img src="../assets/Images/Logo1.jpg" style="width:150px; height:30px;" alt="Sample Image" /></ng-template>
     <ng-template ngbTabContent>
       <app-hi></app-hi>
     </ng-template>
   </ngb-tab>
-  <ngb-tab title="Blog">
+  <ngb-tab id="blog" title="Blog">
     <ng-template ngbTabContent>
       <app-blog></app-blog>
     </ng-template>
   </ngb-tab>
-  <ngb-tab title="Sexplore" >
+  <ngb-tab id="sexplore" title="Sexplore" >
     <ng-template ngbTabContent>
       <app-sexplore></app-sexplore>
     </ng-template>
   </ngb-tab>
-  <ngb-tab title="Shop">
-    <ng-template ngbTabContent>
-      <app-shop></app-shop>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Explicit">
+  <ngb-tab id="explicit" title="Explicit">
       <ng-template ngbTabContent>
         <app-explicit></app-explicit>
       </ng-template>
     </ngb-tab>
-  <ngb-tab title="Members" [disabled]="true">
+  <ngb-tab id="members" title="Members" [disabled]="true">
     <ng-template ngbTabContent>
       <p>You cant see me yet</p>
     </ng-template>
   </ngb-tab>
+  <ngb-tab id="shop" title="Shop">
+      <ng-template ngbTabContent>
+        <app-shop></app-shop>
+      </ng-template>
+    </ngb-tab>
 </ngb-tabset>
