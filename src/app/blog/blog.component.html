@@ -1,0 +1,90 @@
+
+<div class="container-fluid">
+  <div class="row">
+<div class="col-sm-12" style="margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;">
+  <img src="../../assets/Images/blogHeader.jpg" class="" style="width:100%;" alt="" >
+</div>
+</div>
+</div>
+
+<div  class="container-fluid" style="padding-top:25px;">
+    <div class="row" >
+        <div class="col-md-10" >
+        <div id="About" class="row" >
+            <div class="col-md-2" style="padding-bottom:20px;">
+                <div>
+                    <img src="../assets/Images/Logo1.jpg" class="container-fluid" alt="Sample Image" >
+                </div>
+            </div>
+            <div class="col-md-10" ><span style="font-size:16pt;font-weight:bold;" class="media-heading">About this blog</span>  
+              
+              <p>Welcome to our blog! Vanilla4Kink was created with hopes of helping couples who are sexual opposites… mainly when one person is Vanilla 
+                and the other is Kinky. My blog is mainly focused on the Vanilla partner and how they can help to bridge different levels of intimacy gaps 
+                with their more advanced “Kinky” partners. This is a topic that I have struggled to overcome with my spouse for many many years and I hope 
+                others can stand on my shoulders and learn from my experiences to achieve not only a better relationship, but a better understanding of what 
+                is likely going through their kinky spouses head. 
+              <span id="AboutReadMore" style="display:none;">
+                  When a couple is on different levels in the bedroom it can create other gaps in their relationship that they may not even see- especially as your relationship evolves. As an example, picture your relationship as a train with one engine in front and one engine in back and a bunch of fright cars in between them. If the engines do not move in unison then the train could pull apart the freight cars and even damage the engines. The trains are you and your spouse and the freight cars are your family and the life you built together. 
+                  In my case where my wife is the Vanilla and I am the Kink, I found that other parts of our relationship suffered as a result of our sexual differences. She craved a closeness that I could not fully deliver on because I did not feel close to her due to our differences in the bedroom. So cuddling and and closeness (things I crave too) fell to the wayside because we experience it different ways. As a Kink, my idea of closeness in a relationship is someone who I can openly fufill desires for and in turn have my desires will be filled without judgement and just for the sake of seeing them enjoy the ecstasy we provide each other- everything else from the cuddling to the sweet talk comes naturally to me in that scenario. As a Vanilla, she wanted the cuddling, sweet talk, and random acts of passion which comes very naturally to her. 
+                  In the beginning of our relationship (during that honeymoon phase) we, of course, put up our fronts to meet each others needs as we were in love. But since our relationship evolved at two completely separate paces in two completely separate ways we started drifting apart. Instead of being one natural force of nature together we became to completely separate forces that required a lot of sacrifice to each other to just remain cohabitants… even though we stilled loved each other immensely.       
+                  So why Vanilla4Kink as oppose to Kink4Vanilla? While bridging the gap does require taking action from both sides so as to keep the train at pace my wife and I have found that the key to our relationship was getting her to bring things to the table.. the bedroom that is. Mainly because we both want what she wants which is stability in a close and loving relationship… I just had different needs that had to be met in order for me to reciprocate it autonomously, naturally. I can also tell you from experience, that it is easier for a Kink a to satisfy the needs of a Vanilla… but the problem there is after awhile it becomes really one-sided and the Kink will find themselves forcing it upon themselves as they will undoubtedly question what they want/need and how to get it.   If any of the above is relatable to you, I hope my findings here will help you. I have seen so many relationships fail due to couples speaking different intimate dialects when they could of genuinely been happy with each other if they had just found that common ground.  
+                  The sources for the information I blog about come from my own experiences, my networks experiences, and a variety of psychologists and psychology resources. I am not PHD or licenses therapist.  
+              </span><br />
+              <a style="color:blue; font-size:9pt;cursor:pointer;" id="ReadMore" onclick="DisplayDIV('AboutReadMore');HideDIV('ReadMore');DisplayDIV('ReadLess');">Read More v</a>
+              <a style="color:blue; font-size:9pt;cursor:pointer;display:none;" id="ReadLess" onclick="HideDIV('AboutReadMore');DisplayDIV('ReadMore');HideDIV('ReadLess');">Read Less ^</a>
+              </p></div>
+        </div> 
+      </div>
+      <div class="col-md-2"><div class="panel panel-success" style="margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;">
+          
+      </div>
+      <div class="panel panel-success" style="margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;">
+          <div class="container-fluid" style="font-size:11pt; background-color:pink; padding:5px 5px 5px 5px;" >
+              <span class="panel-title">Articles</span>
+          </div>
+          <div class="container-fluid" style="padding-left:10px;font-size:9pt; ">
+            <ul class="list-unstyled">
+              <li ><a href="#About">About this blog</a></li>
+              <li *ngFor = "let blogEntry of blogEntries"><a href="#{{blogEntry.id}}">{{blogEntry.title}}</a></li>
+            </ul></div>
+          <div class="panel-body" style="padding-left:10px;font-size:9pt; ">
+            </div>
+      </div></div>
+    </div>
+  </div>
+
+<div  class="container-fluid" style="padding-top:25px;" *ngFor = "let blogEntry of blogEntries">
+  <div id="{{blogEntry.id}}"  class="row" >
+      <div class="col-md-10">
+          <div class="row" >
+              <div class="col-md-2" style="padding-bottom:20px;">
+                  <div>
+                      <img src="../assets/Images/{{blogEntry.image}}" class="container-fluid" alt="Sample Image" >
+                  </div>
+              </div>
+              <div class="col-md-10">
+                  <span style="font-size:16pt;font-weight:bold;" class="media-heading">{{blogEntry.title}}</span>  
+                  <span style="font-size:10pt;" >{{blogEntry.author}}<small> <i>Posted on {{blogEntry.timestamp}}</i></small></span>
+                  <div [innerHTML]="blogEntry.content" > <br /><br />{{blogEntry.comment}}</div>
+              </div>
+              
+            </div>
+
+        </div>
+            <div class="col-md-2" >
+                
+                <div class="panel panel-success" style="margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;">
+                    <div class="panel-heading" style="font-size:11pt; background-color:pink; padding:5px 5px 5px 5px;" >
+                        <span class="panel-title">Article Sponsors</span>
+                    </div>
+                    <div class="panel-body" style="padding-left:10px;font-size:9pt; ">
+                      </div>
+                </div>
+          </div>
+          </div>
+        </div><br /><br />
+        
+
+
+
+

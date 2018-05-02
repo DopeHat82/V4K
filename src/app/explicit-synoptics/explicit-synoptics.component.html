@@ -1,0 +1,91 @@
+
+
+<div class="container-fluid">
+    <div class="row">
+  <div class="col-sm-12" style="margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;">
+    <img src="../../assets/Images/explicitSynopticsHeader1.jpg" class="" style="width:100%;" alt="" >
+  </div>
+  </div>
+  </div>
+  
+             
+  <div  class="container-fluid" style="padding-top:25px; ">
+        <div id="About" class="row" >
+                    <div class="col-md-12" >
+                   <div class="aboutPanel">
+                        <span style="font-size:16pt;font-weight:bold;" class="media-heading">All about Explicit Synoptics</span>  
+                    <p>So what is Explicit Synoptics? Explicit Synoptics is a term we use to describe the analyzation of pornography and how we react or feel when we view pornographic content. 
+                        The overall goal of Explicit Synoptics is to enhance your sexual partnerships by providing Vanilla boys and girls with a perspective their kinky 
+                        counterparts might have. So why pornography? Isn't pornography a ruiner of relationships? mind poisioning? creating unrealistic expectations? 
+                        Well truth be told.. yes it can and no it can't. It all depends on the dynamics of each individual person and their relationships. For example, 
+                        one person might be disgusted at the thought of their partner watching porn and another might be greatful their partner has a sexual outlet that 
+                        gives them a break from time to time. One person might watch porn everyday with no ill effects and for others it may interupt and control their 
+                        lives like a drug addiction. Just like everything in the world- everyone is entitled to their own opinions and life choices. At any rate, the point 
+                        here is to open eyes and provide ideas... not to judge. Pornography, like all media, can enhance or degrade the quailty of your experiences. It trains
+                        your brain and thought processes which indirectly encourages and influences the way you act and feel.     
+                    <span id="AboutReadMore" style="display:none;">
+                       A good parellel or comparison for this would be celebrities and other people. Celebrities influence us in many ways both directly and indirectly. That new perfume J Lo is promoting sells out simply because 
+                       people follow J Lo. The term/acronym "YOLO", "LOL", and "WTF" have incorporated itself into our daily lexicon because many of us imitate and incorporate. 
+                       Pornography is no different. We see sexual acts being carried out that peeks our curosity and we are interested. The more and more we see it the more and more
+                       we will likely attempt to incorporate it in our own sex life. Possibly even uncovering fetishes we never realized we had. The main bullet point here is that exposure
+                       through media can be used as tool. And with the right mindset (an open mind) we can use this tool to understand and enhance ourselves and their love lifes. <br /><br />
+                       <strong>So what can I take from the Explicit Synoptics section of this site? How does it work?</strong><br />
+                       Once or twice a week we post a new blog entry with a pornographic video. The blog entry will contain a summary of thoughts from multiple individuals from both sexes
+                       with varying levels of Kink that details their perceptions, feelings, and the desires they experienced when they watched the video. Our hope is that this exercise will paint 
+                       a picture of how a particular video invokes feelings in others as well as provide dialogue for you and your partner. 
+                       <br /><br />
+                        Be sure to also check out our "Explicit" section of the site as well. It's a safe and secure repository of pornographic content. And our Sexplore App which is a tool that is designed
+                        to help explore the different types of fetishes and sexual acts and provides you with ways to get involved and ideas to surprise your lover with. Both sections of this site have 
+                        a "threshold" setting that you can set to "Low" "Medium" or "High" which will filter out content you might find a little "too much" or "too little" at this point in your journey.   
+                       <br /><br />
+                       With all that said- let's get started!
+                    </span><br />
+                    <a style="color:blue; font-size:9pt;cursor:pointer;" id="ReadMore" onclick="DisplayDIV('AboutReadMore');HideDIV('ReadMore');DisplayDIV('ReadLess');">Read More v</a>
+                    <a style="color:blue; font-size:9pt;cursor:pointer;display:none;" id="ReadLess" onclick="HideDIV('AboutReadMore');DisplayDIV('ReadMore');HideDIV('ReadLess');">Read Less ^</a>
+                    </p>
+                </div>
+                </div>
+    <div  class="container-fluid" style="padding-top:25px;">
+            <div class="row" >
+                <div class="col-md-10" >
+  <div  class="container-fluid" style="padding-top:25px;" *ngFor = "let entry of mediaContent">
+    <div id="{{entry.id}}"  class="row" >
+        <div class="col-md-12">
+            <div class="row" >
+                <div class="col-md-4" style="padding-bottom:0px;">
+                    <div>
+                      <iframe [src]='sanitizer.bypassSecurityTrustResourceUrl(entry.media)' class="container-fluid" style="min-height:300px;" frameborder="0"></iframe>
+                    </div>
+                    <div style="text-align:center; font-size:9pt;">Trouble viewing this video? <a [href]='sanitizer.bypassSecurityTrustResourceUrl(entry.link)' target="blank">Click here</a> to open it in another page.</div>
+                </div>
+                <div class="col-md-8">
+                    <span style="font-size:16pt;font-weight:bold;" class="media-heading">{{entry.title}}</span>  
+                    <span style="font-size:12pt;color:#C60000;" >({{entry.threshold}})</span>
+                    <span style="font-size:12pt;color:purple;" >{{entry.orientation}}, {{entry.genre}}</span>
+                    <div [innerHTML]="entry.content" > <br /><br />{{entry.comment}}</div>
+                </div>
+                
+              </div>
+  
+          </div>
+            </div>
+          </div>
+                </div>
+                <div class="col-md-2"><div class="panel panel-success" style="margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;">
+                        
+                    </div>
+                    <div class="panel panel-success" style="margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;">
+                        <div class="container-fluid" style="font-size:11pt; background-color:pink; padding:5px 5px 5px 5px;" >
+                            <span class="panel-title">Posts</span>
+                        </div>
+                        <div class="container-fluid" style="padding-left:10px;font-size:9pt; ">
+                          <ul class="list-unstyled">
+                            <li ><a href="#About">All About Explict Synoptics</a></li>
+                            <li *ngFor = "let entry of mediaContent"><a href="#{{entry.id}}">{{entry.title}}</a></li>
+                          </ul></div>
+                        <div class="panel-body" style="padding-left:10px;font-size:9pt; ">
+                          </div>
+                    </div></div>
+            </div>
+        </div>
+          <br /><br />

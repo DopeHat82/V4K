@@ -4,11 +4,37 @@
   <meta charset="utf-8">
   <title>V4K</title>
   <base href="/">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+<style type="text/css">
+body{
+  height: 100%;
+}
+.body-bgcolor{
+  background-color: white;
+}
+html{height: 100%;}
+#ng-scope {
+    height: 100%;}
+    html, body, .tabset, .tab-content, .tab-pane, .tabbable {
+       height:100%;
+      }
+
+     .tab-content {
+        height:100%;
+        min-height:100%;
+      }
+     
+</style>
+  <script type="text/javascript">
+    function HideDIV(d) { document.getElementById(d).style.display = "none"; }
+    function DisplayDIV(d) { document.getElementById(d).style.display = "block"; }   
+    function populateSexplore(value){ document.getElementById('Sexplore').innerHTML= value;}
+      
+    </script>
 </head>
-<body>
+<body id="body" class="body-bgcolor">
   <app-root></app-root>
 </body>
 </html>

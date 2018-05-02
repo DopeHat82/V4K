@@ -1,0 +1,12 @@
+::ng-deep .body-bgcolor{
+    background-color: white;
+  }
+
+  .aboutPanel{
+    
+    border:2px solid lightpink;
+    background-color: pink;
+
+    border-radius: 7px;
+    padding:8px 8px 8px 8px;
+ }
