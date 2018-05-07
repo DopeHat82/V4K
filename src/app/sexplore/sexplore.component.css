@@ -42,19 +42,22 @@ border-radius: 10px;
   height:auto;
   display:block;}
 
-.thumbnail{position:relative;
-  padding-bottom:50%;
-  overflow:hidden;
-  border-radius: 5px;
-  
-}
-.thumbnail img {position:absolute;
-  width: 100%;
-  height:auto;
-  display:block;
-  left: 0px;
-  right: 0px;}
 
   .qMark{
     border-radius: 50px; background-color: blue; cursor:pointer; color:white; padding-right:10px; padding-left: 10px; padding-bottom: 5px; font-weight: bold;
   }
+
+  .thumbnail{position:relative;
+    padding-bottom:50%;
+    overflow:hidden;
+    border-radius: 10px;
+    
+}
+.thumbnail img {position:absolute;
+    width: 100%;
+    height:auto;
+    display:block;
+    left: 0px;
+    right: 0px;
+    border-radius: 10px;
+}

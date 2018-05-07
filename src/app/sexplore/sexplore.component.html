@@ -80,7 +80,7 @@
                             <div style="text-align:center;"><label style="font-size:9pt;color:darkblue;">Products Related to this Fetish</label></div>
                         <div *ngFor="let ad of releveantAds" style="padding-left:8px; padding-right:8px;font-size:11pt;"><a href="{{ad.link}}" target="blank">
                         <div class="row" style="border-bottom:1px solid pink; padding-top:8px; cursor:pointer; padding-bottom:8px;cursor:pointer;" >
-                            <div class="col-md-4 " style="text-align:center;" [innerHTML]="ad.affiliateMedia"></div>
+                            <div class="col-md-4 " style="text-align:center;height:75px; width:75px; overflow:hidden;" [innerHTML]="ad.affiliateMedia"></div>
                             <div class="col-md-8 "> <div class="row" >
                                     <div class="col-md-12 " [innerHTML]="ad.description"></div>
                                     <div class="col-md-12 "></div>
