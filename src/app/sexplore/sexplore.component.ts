@@ -19,13 +19,13 @@ export class SexploreComponent implements OnInit {
     this.selectedFetish= fet;
   }
 
-  
+  thresholdModel = 1;
   fetishes = [];
   sexActsFilter = {
     vanillaPartner: "",
     kinkPartner: "",
     sexploring: "",
-    threshold: ""
+    threshold: "Low"
   };
   sexActsArray = [];
   

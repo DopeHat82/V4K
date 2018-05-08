@@ -1,49 +1,35 @@
-<div  class="container-fluid" style="min-height:100%; ">
-        <div class="row" style="background-color:lightpink; padding-top:10px; padding-bottom:20px;">
-        <div class="col-md-12" style="padding-bottom:15px;display:none;" >
-                <div ngbDropdown class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;" >
-                    <button class="btn btn-outline-primary" id="dropdownBasic1" style="width:100%;text-align:left;" ngbDropdownToggle>I am a Vanilla <label id="VanillaPartner" style="color:pink;width:100%;"></label> </button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                      <button onclick="document.getElementById('VanillaPartner').innerHTML='Boy';" (click)="updateSexActsFilter('vanillaPartner','Boy')" class="dropdown-item">Boy</button>
-                      <button onclick="document.getElementById('VanillaPartner').innerHTML='Girl';" (click)="updateSexActsFilter('vanillaPartner','Girl')" class="dropdown-item">Girl</button>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-12" style="padding-bottom:15px;display:none;" > 
-                <div ngbDropdown class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;" >
-                    <button class="btn btn-outline-primary" id="dropdownBasic2" style="width:100%;text-align:left;"  ngbDropdownToggle>My Kink is a <label id="KinkPartner" style="color:black;width:100%;"></label> </button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <button onclick="document.getElementById('KinkPartner').innerHTML='Boy';" (click)="updateSexActsFilter('kinkPartner','Boy')" class="dropdown-item">Boy</button>
-                        <button onclick="document.getElementById('KinkPartner').innerHTML='Girl';" (click)="updateSexActsFilter('kinkPartner','Girl')" class="dropdown-item">Girl</button>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-2" style="" ></div>
-            <div class="col-md-4" style="padding-top:10px;" >
-                    <div ngbDropdown class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;" >
-                        <button class="btn btn-outline-primary" id="dropdownBasic4" style="width:100%;text-align:left;"  ngbDropdownToggle>My threshold is <label id="Threshold" style="width:100%;"></label></button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                          <button onclick="document.getElementById('Threshold').innerHTML='Low';" (click)="updateSexActsFilter('threshold','Low')" class="dropdown-item">Low - Just curious at this point. Don't scare me.</button>
-                          <button onclick="document.getElementById('Threshold').innerHTML='Medium';" (click)="updateSexActsFilter('threshold','Medium')"  class="dropdown-item">Medium - I'm interested but just getting my feet (or whatever) wet.</button>
-                          <button onclick="document.getElementById('Threshold').innerHTML='High';" (click)="updateSexActsFilter('threshold','High')"  class="dropdown-item">High - I'm interested and confident. I want to see it all.</button>
+<div class="row" style="padding-bottom:5px;border-bottom:1px solid lightpink;">
+        <div class="col-md-3" style="padding-top:15px;" ><img src="../assets/Images/LogoSexplore1.png" class="container-fluid" /></div>
+        <div class="col-md-3">
+            <div  style="padding-left:15px; padding-right:15px;" >
+                <span style="font-size:9pt;">Select a Fetish, Category, or Sex Act</span>
+                <div ngbDropdown  class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;" >
+                        <button class="btn btn-outline-primary" id="dropdownBasic3" style="width:100%;text-align:left;"  ngbDropdownToggle>I am Sexploring <label id="Sexplore" style="width:100%;">{{selectedFetish}}</label> </button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1"  >
+                          <div *ngFor="let fetish of fetishes"><button (click)="addtoSexplore(fetish.title);updateSexActsFilter('sexploring',fetish.title)" class="dropdown-item">{{fetish.title}}</button></div>
                         </div>
                       </div>
-                </div>
-            <div class="col-md-4" style="padding-top:10px;" >
-              
-                <div ngbDropdown class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;" >
-                    <button class="btn btn-outline-primary" id="dropdownBasic3" style="width:100%;text-align:left;"  ngbDropdownToggle>I am Sexploring <label id="Sexplore" style="width:100%;">{{selectedFetish}}</label> </button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1"  >
-                      <div *ngFor="let fetish of fetishes"><button (click)="addtoSexplore(fetish.title);updateSexActsFilter('sexploring',fetish.title)" class="dropdown-item">{{fetish.title}}</button></div>
                     </div>
-                  </div>
-            </div>
-           
-            <div class="col-md-1" style="padding-top:8px;" >
-                <span onclick="DisplayDIV('howItWorks');" class="qMark"   >?</span>
-            </div>
-            <div class="col-md-1" style="" ></div>
         </div>
+        <div class="col-md-2" style="padding-bottom:8px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
+            <div class="btn-group btn-group-toggle"  ngbRadioGroup name="radioBasic" [(ngModel)]="thresholdModel" style="width:100%;padding-left:15px; padding-right:15px;">
+                <label ngbButtonLabel class="btn-primary" style="width:100%;">
+                  <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','Low')" [value]="1"> Low
+                </label>
+                <label ngbButtonLabel class="btn-primary" style="width:100%;">
+                  <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','Medium')" [value]="Medium" [value]="2"> Medium
+                </label>
+                <label ngbButtonLabel class="btn-primary" style="width:100%;">
+                  <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','High')" [value]="3"> High
+                </label>
+              </div>
+        </div>
+        <div class="col-md-1" style="padding-top:35px;text-align:center; padding-bottom:10px;" >
+                <span onclick="DisplayDIV('howItWorks');" class="qMark" placement="top" ngbTooltip="How does this app work?"   >?</span>
+            </div>
+    </div>
+<div  class="container-fluid" style="min-height:100%;  ">
+        
         <div id="howItWorks" class="row"><div class="col-md-12" style="">
                 <div *ngIf="fetishes.length < 1" class="" style="padding-top:10%; text-align:center;">
                     <img src="../assets/Images/giphy.gif" /><br /><span style="font-size:15pt; color:pink;">Loading Content</span>

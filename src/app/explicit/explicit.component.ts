@@ -19,7 +19,23 @@ const tags = ['solo girl', 'footjob', 'feet', 'fisting', 'masturbation', 'blowjo
 })
 export class ExplicitComponent implements OnInit {
   public model: any;
-
+  thresholdModel = 1;
+  mediaModel = 3;
+  pager: any = {};
+  pagedItems: any[];
+  pageArray = [];
+  collectionCnt: number=1;
+  currentPage:number=1;
+  pageCnt:number=0;
+  collectionSize:number=10;
+  searchParameters = {
+    genre: "All",
+    threshold: "Low",
+    type: "Video"
+  };
+  resultsArray = [];
+  isSearch = false;
+  selectedKeyword = "";
 
   search = (text$: Observable<string>) =>
     text$
@@ -33,38 +49,25 @@ export class ExplicitComponent implements OnInit {
 
   updateSearchParameters = function (filter, value) {
     if (filter == "genre")
-    { this.searchParameters.genre = value; }
+    { this.searchParameters.genre = value; this.isSearch = false; }
     else if (filter == "threshold")
     { this.searchParameters.threshold = value; }
     else if (filter == "type")
     { this.searchParameters.type = value; }
+    if(this.isSearch == true){this.searchEntries(this.selectedKeyword);}
+    else{
     this.fetchResultsData();
+    }
   }
 
- 
-
-  
-  // pager object
-  pager: any = {};
-
-  // paged items
-  pagedItems: any[];
-
-  searchParameters = {
-    genre: "All",
-    threshold: "Low",
-    type: "Video"
-  };
-  resultsArray = [];
-
- 
-  searchEntries = function (keyword) {
+  searchEntries = function (keyword) {  
     this.resultsArray = [];
-    var stage = [];
+    var stage = []; this.isSearch = true; this.selectedKeyword = keyword;
     this.http.get("./assets/json/explicit.json").subscribe(
       (res: Response) => {
         stage = res.json();
         for (var i in stage) {
+          if(stage[i].threshold === this.searchParameters.threshold && stage[i].type === this.searchParameters.type){
           if (stage[i].keyword.tag1 === keyword) {
             this.resultsArray.push(stage[i]);
           }
@@ -81,33 +84,10 @@ export class ExplicitComponent implements OnInit {
             this.resultsArray.push(stage[i]);
           }
         }
+        }
       }
     );
 
-  }
-
-  fetchResultsDatas = function () {
-    const genre = this.searchParameters.genre;
-    const threshold = this.searchParameters.threshold;
-    const type = this.searchParameters.type;
-    /*Gets all results */
-    if (this.searchParameters.genre === "All") {
-      this.http.get("./assets/json/explicit.json").subscribe(
-        (res: Response) => {
-          this.resultsArray = res.json();
-        }
-      );
-    }
-    else {
-      /*Filters results*/
-      this.http.get("./assets/json/explicit.json").subscribe(
-        (res: Response) => {
-          var filter = _.filter(res.json(), function (results)
-          { return results.genre === genre && results.threshold === threshold && results.type === type })
-          this.resultsArray = filter;
-        }
-      );
-    }
   }
 
   fetchResultsData = function(){
@@ -118,13 +98,6 @@ export class ExplicitComponent implements OnInit {
   );
 
 }
-
-  pageArray = [];
-  collectionCnt: number=1;
-  currentPage:number=1;
-  pageCnt:number=0;
-  collectionSize:number=10;
-  
 
   get pageResults(){
     const genre = this.searchParameters.genre;
@@ -159,5 +132,6 @@ export class ExplicitComponent implements OnInit {
     
     this.fetchReleveantAds();
     this.fetchResultsData(); 
+    
   }
 }
