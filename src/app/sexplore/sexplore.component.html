@@ -1,6 +1,6 @@
 <div class="row" style="padding-bottom:5px;border-bottom:1px solid lightpink;">
         <div class="col-md-3" style="padding-top:15px;" ><img src="../assets/Images/LogoSexplore1.png" class="container-fluid" /></div>
-        <div class="col-md-3">
+        <div class="col-md-3" style="min-width:375px;">
             <div  style="padding-left:15px; padding-right:15px;" >
                 <span style="font-size:9pt;">Select a Fetish, Category, or Sex Act</span>
                 <div ngbDropdown  class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;" >
@@ -11,7 +11,7 @@
                       </div>
                     </div>
         </div>
-        <div class="col-md-2" style="padding-bottom:8px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
+        <div class="col-md-2" style="padding-bottom:8px;min-width:275px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
             <div class="btn-group btn-group-toggle"  ngbRadioGroup name="radioBasic" [(ngModel)]="thresholdModel" style="width:100%;padding-left:15px; padding-right:15px;">
                 <label ngbButtonLabel class="btn-primary" style="width:100%;">
                   <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','Low')" [value]="1"> Low
@@ -24,7 +24,7 @@
                 </label>
               </div>
         </div>
-        <div class="col-md-1" style="padding-top:35px;text-align:center; padding-bottom:10px;" >
+        <div class="col-md-2" style="padding-top:35px;text-align:center; padding-bottom:10px;" >
                 <span onclick="DisplayDIV('howItWorks');" class="qMark" placement="top" ngbTooltip="How does this app work?"   >?</span>
             </div>
     </div>
@@ -164,7 +164,7 @@
                                 <div style="text-align:center;"><label style="font-size:9pt;color:darkblue;">Products Related to this Fetish</label></div>
                             <div *ngFor="let ad of releveantAds" style="padding-left:8px; padding-right:8px;font-size:11pt;"><a href="{{ad.link}}" target="blank">
                             <div class="row" style="border-bottom:1px solid pink; padding-top:8px; cursor:pointer; padding-bottom:8px;cursor:pointer;" >
-                                <div class="col-md-4 " style="text-align:center;height:75px; width:75px; overflow:hidden;" [innerHTML]="ad.affiliateMedia"></div>
+                                <div class="col-md-4 " style="text-align:center;min-height:75px; min-width:75px; overflow:hidden;" [innerHTML]="ad.affiliateMedia"></div>
                                 <div class="col-md-8 "> <div class="row" >
                                         <div class="col-md-12 " [innerHTML]="ad.description"></div>
                                         <div class="col-md-12 "></div>

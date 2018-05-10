@@ -1,10 +1,10 @@
 <div class="row" style="padding-bottom:5px;border-bottom:1px solid lightpink;">
     <div class="col-md-3" style="padding-top:15px;" ><img src="../assets/Images/LogoExplicit1.png" class="container-fluid" /></div>
-    <div class="col-md-3">
+    <div class="col-md-3" style="min-width:300px;">
       
         <div id="searchCell"  style="padding-left:15px;padding-bottom:8px; padding-right:15px;display:none;">
             <span style="font-size:9pt;">Search by Tags and Titles or <a style="color:#C60000; cursor:pointer; text-decoration:underline;" (click)="updateSearchParameters('genre', 'All')" onclick="HideDIV('searchCell'); DisplayDIV('tagsCell');">Select a Genre</a> </span>
-            <table style="width:100%;"><tr><td>
+            <table style="width:100%;"><tr><td style="padding-right:8px;">
               <input type="text" placeholder="search by tag" id="searchKeyword" [(ngModel)]="model" [ngbTypeahead]="search" class="form-control" #keywordSearch />
             </td><td>
                 <button ngbButtonLabel (click)="searchEntries(keywordSearch.value)" class="btn-primary" style="width:100%;">
@@ -54,7 +54,7 @@
                 </div>
           </div>
     </div>
-    <div class="col-md-2" style="padding-bottom:8px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
+    <div class="col-md-2" style="padding-bottom:8px;min-width:275px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
         <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="thresholdModel" style="width:100%;padding-left:15px; padding-right:15px;">
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
               <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Low')" [value]="1"> Low
@@ -67,7 +67,7 @@
             </label>
           </div>
     </div>
-    <div class="col-md-2" style="padding-bottom:8px;"><span style="font-size:9pt;padding-left:15px; ">Media Type</span><br />
+    <div class="col-md-2" style="padding-bottom:8px;min-width:275px;"><span style="font-size:9pt;padding-left:15px; ">Media Type</span><br />
         <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="mediaModel" style="width:100%;padding-left:15px; padding-right:15px;">
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
               <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Video')"[value]="1"> Videos
