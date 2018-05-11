@@ -49,7 +49,7 @@ export class SexploreComponent implements OnInit {
     const sexploring = this.sexActsFilter.sexploring;
     this.fetchReleveantAds(sexploring);
     this.fetchRevelantMedia(sexploring, thresholdFilter);
-    this.http.get("./assets/json/sexacts.json").subscribe(
+    this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/sexacts.json").subscribe(
       (res: Response) => {
         var filter = _.filter(res.json(), function(sexacts)
         {return sexacts.threshold === thresholdFilter && sexacts.keyword === sexploring})
@@ -61,7 +61,7 @@ export class SexploreComponent implements OnInit {
   mediaSwitch: "";
   releveantAds=[];
  fetchReleveantAds = function(selectedGenre){
-    this.http.get("./assets/json/ads.json").subscribe(
+    this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/ads.json").subscribe(
       (res: Response) => {
         var filter = _.filter(res.json(), function(ads)
         {return ads.genre === selectedGenre && ads.type === "products"})
@@ -71,7 +71,7 @@ export class SexploreComponent implements OnInit {
     );
   }
     fetchFestishDropdownData = function(){
-      this.http.get("./assets/json/fetishes.json").subscribe(
+      this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/fetishes.json").subscribe(
         (res: Response) => {
           this.fetishes= res.json().fetishes;
           
@@ -83,7 +83,7 @@ export class SexploreComponent implements OnInit {
     fetchRevelantMedia = function(selectedGenre, threshold)
     {
       const thresholdFilter = this.sexActsFilter.threshold;
-      this.http.get("./assets/json/explicit.json").subscribe(
+      this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/explicit.json").subscribe(
         (res: Response) => {
           var filter = _.filter(res.json(), function (results)
           { return results.genre === selectedGenre && results.threshold === threshold })
@@ -95,7 +95,7 @@ export class SexploreComponent implements OnInit {
     userComments=[];
     fetchuserComments = function()
     {
-      this.http.get("./assets/json/comments.json").subscribe(
+      this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/comments.json").subscribe(
         (res: Response) => {
           this.userComments = res.json();
         }

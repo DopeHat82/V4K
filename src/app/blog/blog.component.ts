@@ -15,7 +15,7 @@ export class BlogComponent implements OnInit {
   blogEntries = [];
   
     fetchData = function(){
-      this.http.get("./assets/json/blog.json").subscribe(
+      this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/blog.json").subscribe(
         (res: Response) => {
           this.blogEntries = res.json().blogEntries;
         }

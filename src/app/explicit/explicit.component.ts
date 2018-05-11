@@ -63,7 +63,7 @@ export class ExplicitComponent implements OnInit {
   searchEntries = function (keyword) {  
     this.resultsArray = [];
     var stage = []; this.isSearch = true; this.selectedKeyword = keyword;
-    this.http.get("./assets/json/explicit.json").subscribe(
+    this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/explicit.json").subscribe(
       (res: Response) => {
         stage = res.json();
         for (var i in stage) {
@@ -91,7 +91,7 @@ export class ExplicitComponent implements OnInit {
   }
 
   fetchResultsData = function(){
-  this.http.get("./assets/json/explicit.json").subscribe(
+  this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/explicit.json").subscribe(
     (res: Response) => {
       this.resultsArray = res.json();
     }
@@ -119,7 +119,7 @@ export class ExplicitComponent implements OnInit {
 
   releveantAds=[];
   fetchReleveantAds = function(){
-     this.http.get("./assets/json/ads.json").subscribe(
+     this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/ads.json").subscribe(
        (res: Response) => {
          var filter = _.filter(res.json(), function(ads)
          {return ads.type === "site" })

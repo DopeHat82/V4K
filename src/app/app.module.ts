@@ -15,6 +15,7 @@ import { SexploreComponent } from './sexplore/sexplore.component';
 import { ShopComponent } from './shop/shop.component';
 import { ExplicitComponent } from './explicit/explicit.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
