@@ -60,7 +60,7 @@
               <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Low')" [value]="1"> Low
             </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Medium')" [value]="Medium" [value]="2"> Medium
+              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Medium')"  [value]="2"> Medium
             </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
               <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'High')" [value]="3"> High
@@ -73,7 +73,7 @@
               <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Video')"[value]="1"> Videos
             </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Images')" [value]="Medium" [value]="2"> Images
+              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Images')"  [value]="2"> Images
             </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
               <input ngbButton type="radio" (click)="updateSearchParameters('type', 'All')" [value]="3"> All
@@ -82,66 +82,7 @@
         </div>
 
 </div>
-<div class="row" style="display:none;">
-    <div class="col-md-3" >
-        <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="thresholdModel">
-            <label ngbButtonLabel class="btn-primary">
-              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Low')" [value]="1"> Low
-            </label>
-            <label ngbButtonLabel class="btn-primary">
-              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Medium')" [value]="Medium" [value]="2"> Medium
-            </label>
-            <label ngbButtonLabel class="btn-primary">
-              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'High')" [value]="3"> High
-            </label>
-          </div>
-    </div>
-    <div class="col-md-3" style="">
-        <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="thresholdModel">
-            <label ngbButtonLabel class="btn-primary">
-              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Video')"[value]="1"> Videos
-            </label>
-            <label ngbButtonLabel class="btn-primary">
-              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Images')" [value]="Medium" [value]="2"> Images
-            </label>
-            <label ngbButtonLabel class="btn-primary">
-              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'All')" [value]="3"> All
-            </label>
-          </div>
 
-
-
-
-
-
-
-
-      <div class="row" style="display:none;">
-        <div class="col-md-3"> 
-        <div id="thrshldLbl" placement="bottom" ngbTooltip="Click to set your Threshold" >Threshold: <span onclick="DisplayDIV('thrshld');HideDIV('thrshldLbl');" style="color:blue;cursor:pointer;">"{{searchParameters.threshold}}"</span></div>
-        <div id="thrshld"  style="padding-top:5px; padding-bottom:5px;display:none;">
-            <div ngbDropdown class="d-inline-block sexploreDropdown" style="text-align:left;">
-              <button class="btn btn-outline-primary" id="dropdownBasic1" style="text-align:left;" ngbDropdownToggle>Threshold <label id="threshold" style=""></label> </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <button onclick="document.getElementById('threshold').innerHTML='Low';HideDIV('thrshld');DisplayDIV('thrshldLbl');" (click)="updateSearchParameters('threshold', 'Low')"
-                  class="dropdown-item">Low - Keep it tame. Softcore stuff only.</button>
-                <button onclick="document.getElementById('threshold').innerHTML='Medium';HideDIV('thrshld');DisplayDIV('thrshldLbl');" (click)="updateSearchParameters('threshold', 'Medium')"
-                  class="dropdown-item">Medium - I'm Pretty cultured. But don't go too far.</button>
-                <button onclick="document.getElementById('threshold').innerHTML='High';HideDIV('thrshld');DisplayDIV('thrshldLbl');" (click)="updateSearchParameters('threshold', 'High')"
-                  class="dropdown-item">High - Gimmie Gimmie Gimmie. My freak flag is flying high!</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" placement="bottom" ngbTooltip="Click to specify your Media Preference" >Media Preference: <span onclick="DisplayDIV('');"  style="color:blue;cursor:pointer;">"{{searchParameters.type}}"</span></div>
-        <div class="col-md-4" placement="bottom" ngbTooltip="Click to select a Genre" >Genre: <span onclick="DisplayDIV('');"  style="color:blue; cursor:pointer;">"{{searchParameters.genre}}"</span></div>
-      </div>
-      
-
-    </div>
-    
-    <div class="col-md-4" ></div>
-</div>
 
 <div class="row" style="padding-top:15px; padding-bottom:15px; background-color:lightpink; border-bottom:1px solid pink;display:none;">
   <div class="col-md-1" style=""></div>
