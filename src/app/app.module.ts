@@ -14,6 +14,7 @@ import { ExplicitSynopticsComponent } from './explicit-synoptics/explicit-synopt
 import { SexploreComponent } from './sexplore/sexplore.component';
 import { ShopComponent } from './shop/shop.component';
 import { ExplicitComponent } from './explicit/explicit.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ExplicitComponent } from './explicit/explicit.component';
     ExplicitSynopticsComponent,
     SexploreComponent,
     ShopComponent,
-    ExplicitComponent
+    ExplicitComponent,
+    AddCommentComponent
   ],
   imports: [
     BrowserModule,

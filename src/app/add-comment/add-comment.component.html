@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <form id="formNewProduct" name="formNewProduct" #commentData = "ngForm" (ngSubmit) = "addComment(commentData.value)">
+    <label>user: </label> <input type="text" name="user" id="user" placeholder="user" ngModel><br/>
+    <label>Id </label> <input type="text" name="contentId" id="contentId" placeholder="contentId" ngModel><br/>
+    <input type="submit" value="Add Comment">
+  </form>
+
+</div>

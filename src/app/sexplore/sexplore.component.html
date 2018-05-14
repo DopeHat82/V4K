@@ -1,51 +1,53 @@
 <div class="row" style="padding-bottom:5px;border-bottom:1px solid lightpink;">
-        <div class="col-md-3" style="padding-top:15px;" ><img src="../assets/Images/LogoSexplore1.png" class="container-fluid" /></div>
-        <div class="col-md-3" style="min-width:375px;">
-            <div  style="padding-left:15px; padding-right:15px;" >
-                <span style="font-size:9pt;">Select a Fetish, Category, or Sex Act</span>
-                <div ngbDropdown  class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;" >
-                        <button class="btn btn-outline-primary" id="dropdownBasic3" style="width:100%;text-align:left;"  ngbDropdownToggle>I am Sexploring <label id="Sexplore" style="width:100%;">{{selectedFetish}}</label> </button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1"  >
-                          <div *ngFor="let fetish of fetishes"><button (click)="addtoSexplore(fetish.title);updateSexActsFilter('sexploring',fetish.title)" onclick="HideDIV('howItWorks');" class="dropdown-item">{{fetish.title}}</button></div>
-                        </div>
-                      </div>
-                    </div>
+    <div class="col-md-3" style="padding-top:15px;"><img src="../assets/Images/LogoSexplore1.png" class="container-fluid" /></div>
+    <div class="col-md-3" style="min-width:375px;">
+        <div style="padding-left:15px; padding-right:15px;">
+            <span style="font-size:9pt;">Select a Fetish, Category, or Sex Act</span>
+            <div ngbDropdown class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;">
+                <button class="btn btn-outline-primary" id="dropdownBasic3" style="width:100%;text-align:left;" ngbDropdownToggle>I am Sexploring <label id="Sexplore" style="width:100%;">{{selectedFetish}}</label> </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <div *ngFor="let fetish of fetishes"><button (click)="addtoSexplore(fetish.title);updateSexActsFilter('sexploring',fetish.title)" onclick="HideDIV('howItWorks');"
+                            class="dropdown-item">{{fetish.title}}</button></div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-2" style="padding-bottom:8px;min-width:275px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
-            <div class="btn-group btn-group-toggle"  ngbRadioGroup name="radioBasic" [(ngModel)]="thresholdModel" style="width:100%;padding-left:15px; padding-right:15px;">
-                <label ngbButtonLabel class="btn-primary" style="width:100%;">
+    </div>
+    <div class="col-md-2" style="padding-bottom:8px;min-width:275px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
+        <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="thresholdModel" style="width:100%;padding-left:15px; padding-right:15px;">
+            <label ngbButtonLabel class="btn-primary" style="width:100%;">
                   <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','Low')" [value]="1"> Low
                 </label>
-                <label ngbButtonLabel class="btn-primary" style="width:100%;">
+            <label ngbButtonLabel class="btn-primary" style="width:100%;">
                   <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','Medium')"  [value]="2"> Medium
                 </label>
-                <label ngbButtonLabel class="btn-primary" style="width:100%;">
+            <label ngbButtonLabel class="btn-primary" style="width:100%;">
                   <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','High')" [value]="3"> High
                 </label>
-              </div>
         </div>
-        <div class="col-md-2" style="padding-top:35px;text-align:center; padding-bottom:10px;" >
-                <span onclick="DisplayDIV('howItWorks');" class="qMark" placement="top" ngbTooltip="How does this app work?"   >?</span>
-            </div>
     </div>
-<div  class="container-fluid" style="min-height:100%;  ">
-        
-        <div id="howItWorks" class="row"><div class="col-md-12" style="">
-                <div *ngIf="fetishes.length < 1" class="" style="padding-top:10%; text-align:center;">
-                    <img src="../assets/Images/giphy.gif" /><br /><span style="font-size:15pt; color:pink;">Loading Content</span>
-                </div>
+    <div class="col-md-2" style="padding-top:35px;text-align:center; padding-bottom:10px;">
+        <span onclick="DisplayDIV('howItWorks');" class="qMark" placement="top" ngbTooltip="How does this app work?">?</span>
+    </div>
+</div>
+<div class="container-fluid" style="min-height:100%;  ">
 
-                <div *ngIf="fetishes.length > 1" class="sexActsPanel border elementBackground">
-                        <p>    
-                    <h5>What is the Sexplore App all about?</h5> 
-                        The idea behind Vanilla4Kink is to help couples who are sexual opposites overcome their inhibitions and better their sex lives. 
-                        Our Sexplore App is focused on providing ideas and experiences that real-life couples have contributed to provide you with real-life 
-                        experiences coupled with research. <br />
-                        <span id="RL" style="cursor:pointer; color:blue;font-size:9pt;display:none;" onclick="DisplayDIV('RM');HideDIV('ReadMore');HideDIV('RL');">Read Less ^</span>
-                        <span id="RM" style="cursor:pointer; color:blue;font-size:9pt;" onclick="DisplayDIV('ReadMore');DisplayDIV('RL');HideDIV('RM');">Read More v</span> 
-                        <br /><br />
+    <div id="howItWorks" class="row">
+        <div class="col-md-12" style="">
+            <div *ngIf="fetishes.length < 1" class="" style="padding-top:10%; text-align:center;">
+                <img src="../assets/Images/giphy.gif" /><br /><span style="font-size:15pt; color:pink;">Loading Content</span>
+            </div>
 
-                        <span id="ReadMore" style="display:none;">
+            <div *ngIf="fetishes.length > 1" class="sexActsPanel border elementBackground">
+                <p>
+                    <h5>What is the Sexplore App all about?</h5>
+                    The idea behind Vanilla4Kink is to help couples who are sexual opposites overcome their inhibitions and better their sex
+                    lives. Our Sexplore App is focused on providing ideas and experiences that real-life couples have contributed
+                    to provide you with real-life experiences coupled with research. <br />
+                    <span id="RL" style="cursor:pointer; color:blue;font-size:9pt;display:none;" onclick="DisplayDIV('RM');HideDIV('ReadMore');HideDIV('RL');">Read Less ^</span>
+                    <span id="RM" style="cursor:pointer; color:blue;font-size:9pt;" onclick="DisplayDIV('ReadMore');DisplayDIV('RL');HideDIV('RM');">Read More v</span>
+                    <br /><br />
+
+                    <span id="ReadMore" style="display:none;">
                         <h5>Who are these "real-life" couples?</h5>
                         Over the course of about year, we've sought out and gathered a small community or "panel" of couples, both Vanilla and Kinks, to 
                         discuss, create, and provide feedback and stories on the several sex acts and fetishes they have experience with. These couples have 
@@ -82,103 +84,118 @@
                         Plus, if you are the Vanilla partner- we'd put money on the fact your Kinky counterpart watches porn. When couples are sexual oppisites- its 
                         how their Kink's kink gets fed. Let's face it, most people do on a regular basis. Don't believe me? Google "how much money does the adult industry 
                         make every year" and then, of course, come back and apologize for your disbelief.  <br /><br /></span>
-                        <h5>How it works</h5>
-                        Simply configure the settings to Sexplore fetish content that has been provided by Kinks who enjoy these sex acts. The "Threshold" setting allows 
-                        you filter content that may be a "little too much" or a "little too little" for you at this point in your journey. Setting the "Threshold" to "Low" will provide you with some basics about each Fetish, Category, or Sex Act and how to "get your feet wet". Setting the "Threshold" to "Medium" or "High" will provide you with activities and suggestions to try. Content is frequently added so 
-                        be sure to check back later if you don't see the fetish you are interested in or have read through all the content for a particular fetish.  <br  /><br  />
-                        <span style="color:darkblue;">Always Remember!! The content delivered by this app are suggestions meant to give you ideas and help you understand. While 
+                    <h5>How it works</h5>
+                    Simply configure the settings to Sexplore fetish content that has been provided by Kinks who enjoy these sex acts. The "Threshold"
+                    setting allows you filter content that may be a "little too much" or a "little too little" for you at
+                    this point in your journey. Setting the "Threshold" to "Low" will provide you with some basics about
+                    each Fetish, Category, or Sex Act and how to "get your feet wet". Setting the "Threshold" to "Medium"
+                    or "High" will provide you with activities and suggestions to try. Content is frequently added so be
+                    sure to check back later if you don't see the fetish you are interested in or have read through all the
+                    content for a particular fetish. <br /><br />
+                    <span style="color:darkblue;">Always Remember!! The content delivered by this app are suggestions meant to give you ideas and help you understand. While 
                             these suggestions are popular, it is no substitute for communication between you and your Kink. You and you Kink are your own Sexplore app. 
                             <br /><br /></span>
-                        <div style="color:#333333;text-align:center; font-size:10pt;padding-right:50px;padding-left:50px;">Vanilla4Kink is free for you but not for us. Please help support its development, content providers, and minimal advertising practices by purchasing products from our sponsors, joining one of our many affiliated adult sites, or simply donate. <br /><br /></div>
-                        <div style="text-align:right; padding-right:10px;">
-                                <button onclick="HideDIV('howItWorks');" class="btn btn-outline-primary" >Close</button>
-                        </div>
+                    <div style="color:#333333;text-align:center; font-size:10pt;padding-right:50px;padding-left:50px;">Vanilla4Kink is free for you but not for us. Please help support its development, content providers,
+                        and minimal advertising practices by purchasing products from our sponsors, joining one of our many
+                        affiliated adult sites, or simply donate. <br /><br /></div>
+                    <div style="text-align:right; padding-right:10px;">
+                        <button onclick="HideDIV('howItWorks');" class="btn btn-outline-primary">Close</button>
                     </div>
-          </div></div>
-    <div class="row" >
-        <div class="col-md-12" >
-        <div class="row"  >
-                      
-            <div class="col-md-9" style="">
-                  <div *ngIf="sexActsArray.length < 1 && sexActsFilter.sexploring.length > 1" style="padding-top:5%;text-align:center;"><span style="font-size:15pt; color:blue;">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+
+                <div class="col-md-9" style="">
+                    <div *ngIf="sexActsArray.length < 1 && sexActsFilter.sexploring.length > 1" style="padding-top:5%;text-align:center;"><span style="font-size:15pt; color:blue;">
                     There is no content for this Fetish, Category, or Sex Act at this threshold. This typically means that this selection was regarded as "tame" by our panel of Contributors and Members.       
-                </span></div>  
-                <div *ngFor="let sexAct of sexActsArray" class="sexActsPanel border elementBackground">
+                </span></div>
+                    <div *ngFor="let sexAct of sexActsArray" class="sexActsPanel border elementBackground">
                         <div class="col-md-12">
-                                <div class="row" >
-                                    <div class="col-md-3" style="">
-                                            <div>
-                                                    <a [href]='sanitizer.bypassSecurityTrustResourceUrl(sexAct.mediaLink)' target="blank"><img src="../assets/Images/{{sexAct.image}}" class="container-fluid" alt="Sample Image" ></a>
-                                                    <div style="text-align:center; font-size:9pt;"><a [href]='sanitizer.bypassSecurityTrustResourceUrl(sexAct.mediaLink)' target="blank">View this gallery or product from {{sexAct.galleryProvider}}</a></div>
-                                                </div>
-                                     </div>
-                                    <div class="col-md-9">
-                                        <span style="font-size:16pt;font-weight:bold;" class="media-heading">{{sexAct.title}}</span>  
-                                        <span style="font-size:12pt;color:#C60000;" >({{sexAct.threshold}})</span>
-                                        <span style="font-size:12pt;color:purple;" >{{sexAct.keyword}}</span>
-                                        <div [innerHTML]="sexAct.description" ></div>
-                                        <div style="padding-top:20px;padding-bottom:25px; color:darkblue;" [innerHTML]="sexAct.tryThis"  ></div>
-                                        <div id="Show{{sexAct.id}}" style="padding-top:20px;padding-bottom:25px; color:#C60000; cursor:pointer; font-size:10pt;" (click)="DisplayDIV('Cmnt' + sexAct.id); HideDIV('Show' + sexAct.id);DisplayDIV('Hide' + sexAct.id);"  >Show Comments and Stories from Contributors and Members +</div>
-                                        <div id="Hide{{sexAct.id}}" style="padding-top:20px;padding-bottom:25px; color:#C60000;cursor:pointer; font-size:10pt; display:none;" (click)="HideDIV('Cmnt' + sexAct.id); HideDIV('Hide' + sexAct.id); DisplayDIV('Show' + sexAct.id)"  >Hide Comments and Stories from Contributors and Members -</div>
-                                        
-                                        <div id="Cmnt{{sexAct.id}}" style="display:none;">
-                                        <div  *ngFor="let comment of userComments">
-                                                <div *ngIf="(sexAct.id == comment.contentId)">
-                                                        <span style="font-size:10pt;color:#C60000;" >{{comment.user}} - {{comment.memberStatus}}</span>
-                                                        <span style="font-size:10pt;color:purple;" >({{comment.commentorType}})</span>
-                                                        <span style="font-size:10pt;color:black;" ><i>{{comment.timestamp}}</i></span>
-                                                    <p style="font-size:10pt;">{{comment.comment}}</p>
-                                                
-                                                </div>
-                                                
+                            <div class="row">
+                                <div class="col-md-3" style="">
+                                    <div>
+                                        <a [href]='sanitizer.bypassSecurityTrustResourceUrl(sexAct.mediaLink)' target="blank"><img src="../assets/Images/{{sexAct.image}}" class="container-fluid" alt="Sample Image" ></a>
+                                        <div style="text-align:center; font-size:9pt;"><a [href]='sanitizer.bypassSecurityTrustResourceUrl(sexAct.mediaLink)' target="blank">View this gallery or product from {{sexAct.galleryProvider}}</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <span style="font-size:16pt;font-weight:bold;" class="media-heading">{{sexAct.title}}</span>
+                                    <span style="font-size:12pt;color:#C60000;">({{sexAct.threshold}})</span>
+                                    <span style="font-size:12pt;color:purple;">{{sexAct.keyword}}</span>
+                                    <div [innerHTML]="sexAct.description"></div>
+                                    <div style="padding-top:20px;padding-bottom:25px; color:darkblue;" [innerHTML]="sexAct.tryThis"></div>
+                                    <div id="Show{{sexAct.id}}" style="padding-top:20px;padding-bottom:25px; color:#C60000; cursor:pointer; font-size:10pt;"
+                                        (click)="DisplayDIV('Cmnt' + sexAct.id); HideDIV('Show' + sexAct.id);DisplayDIV('Hide' + sexAct.id);">Show Comments and Stories from Contributors and Members +</div>
+                                    <div id="Hide{{sexAct.id}}" style="padding-top:20px;padding-bottom:25px; color:#C60000;cursor:pointer; font-size:10pt; display:none;"
+                                        (click)="HideDIV('Cmnt' + sexAct.id); HideDIV('Hide' + sexAct.id); DisplayDIV('Show' + sexAct.id)">Hide Comments and Stories from Contributors and Members -</div>
+
+                                    <div id="Cmnt{{sexAct.id}}" style="display:none;">
+                                        <div *ngFor="let comment of userComments">
+                                            <div *ngIf="(sexAct.id == comment.contentId)">
+                                                <span style="font-size:10pt;color:#C60000;">{{comment.user}} - {{comment.memberStatus}}</span>
+                                                <span style="font-size:10pt;color:purple;">({{comment.commentorType}})</span>
+                                                <span style="font-size:10pt;color:black;"><i>{{comment.timestamp}}</i></span>
+                                                <p style="font-size:10pt;">{{comment.comment}}</p>
+
+                                            </div>
+
                                         </div>
                                     </div>
-                                    </div>
-                                    
-                                  </div>
-                      
-                              </div>
-                    
-                </div>
-                <div class="container-fluid" style="display:;" >
-                        <div *ngIf="relevantMedia?.length > 0" class="row adPanel  elementBackground" >
-                                <div class="col-md-12" style="text-align:center;padding-bottom:5px;"><label style="font-size:9pt;color:darkblue;">Media Related to this Fetish</label></div>
-                        <div *ngFor="let entry of relevantMedia | slice:0:6; let i=index" class="col-sm-2" >
-                                        <div class="col-md-12" style="padding-bottom:0px;text-align:center;">
-                                  
-                                          <div *ngIf="entry.thumbnail" class="thumbnail"><a [href]='sanitizer.bypassSecurityTrustResourceUrl(entry.link)' target="blank"><img src="../assets/Images/{{entry.thumbnail}}" class="container-fluid" style="max-height:250px; max-width:300px" alt="" ></a></div>
-                                          <div *ngIf="entry.thumbnailURL" class="thumbnailURL" ><a [href]='sanitizer.bypassSecurityTrustResourceUrl(entry.link)' target="blank"><img src="{{entry.thumbnailURL}}"  alt="" /></a></div>
-                                          
-                                          <div>{{entry.title}}</div>
-                                          </div>
-                                     
+                                </div>
+
+                            </div>
+
                         </div>
-                    </div></div>
-            </div>
-            <div class="col-md-3" style=" min-height:100%;">
-                    <div class="row" >
-                        
-                        <div class="col-md-12 " style="padding-bottom:15px;" >
-                            
+
+                    </div>
+                    <div class="container-fluid" style="">
+                        <div *ngIf="relevantMedia?.length > 0" class="row adPanel  elementBackground">
+                            <div class="col-md-12" style="text-align:center;padding-bottom:5px;"><label style="font-size:9pt;color:darkblue;">Media Related to this Fetish</label></div>
+                            <div *ngFor="let entry of relevantMedia | slice:0:6; let i=index" class="col-sm-2" style="min-width:225px; padding-top:10px;">
+                                <div class="col-md-12" style="padding-bottom:0px;text-align:center;">
+
+                                    <div *ngIf="entry.thumbnail" class="thumbnail"><a [href]='sanitizer.bypassSecurityTrustResourceUrl(entry.link)' target="blank"><img src="../assets/Images/{{entry.thumbnail}}" class="container-fluid" style="max-height:250px; max-width:300px" alt="" ></a></div>
+                                    <div *ngIf="entry.thumbnailURL" class="thumbnailURL"><a [href]='sanitizer.bypassSecurityTrustResourceUrl(entry.link)' target="blank"><img src="{{entry.thumbnailURL}}"  alt="" /></a></div>
+
+                                    <div>{{entry.title}}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style=" min-height:100%;">
+                    <div class="row">
+
+                        <div class="col-md-12 " style="padding-bottom:15px;">
+
                             <div *ngIf="releveantAds?.length > 0" class="adPanel elementBackground panel panel-primary" style="padding-top:0px;">
                                 <div style="text-align:center;"><label style="font-size:9pt;color:darkblue;">Products Related to this Fetish</label></div>
-                            <div *ngFor="let ad of releveantAds" style="padding-left:8px; padding-right:8px;font-size:11pt;"><a href="{{ad.link}}" target="blank">
-                            <div class="row" style="border-bottom:1px solid pink; padding-top:8px; cursor:pointer; padding-bottom:8px;cursor:pointer;" >
-                                <div class="col-md-4 " style="text-align:center;min-height:75px; min-width:75px; overflow:hidden;" [innerHTML]="ad.affiliateMedia"></div>
-                                <div class="col-md-8 "> <div class="row" >
-                                        <div class="col-md-12 " [innerHTML]="ad.description"></div>
-                                        <div class="col-md-12 "></div>
-                                       
+                                <div *ngFor="let ad of releveantAds" style="padding-left:8px; padding-right:8px;font-size:11pt;">
+                                    <a href="{{ad.link}}" target="blank">
+                                        <div class="row" style="border-bottom:1px solid pink; padding-top:8px; cursor:pointer; padding-bottom:8px;cursor:pointer;">
+                                            <div class="col-md-4 " style="text-align:center;min-height:175px; min-width:175px; overflow:hidden;" [innerHTML]="ad.affiliateMedia"></div>
+                                            <div class="col-md-8 ">
+                                                <div class="row">
+                                                    <div class="col-md-12 " [innerHTML]="ad.description"></div>
+                                                    <div class="col-md-12 "></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div></div></a>
+
                             </div>
-                            
-                            </div>
-                           
+
                         </div>
+                    </div>
+
                 </div>
-                
-              </div>
+            </div>
         </div>
-      </div>
-    </div></div>
+    </div>
+</div>

@@ -10,11 +10,15 @@
     position:relative;
     padding-bottom:50%;
     overflow:hidden;
-    border-radius: 5px;}
+    border-radius: 5px;
+
+}
 .thumbnailURL img {position:absolute;
     width: 100%;
     height:auto;
-    display:block;}
+    display:block;
+   
+}
 
 .thumbnail{position:relative;
     padding-bottom:50%;
@@ -28,7 +32,8 @@
     display:block;
     left: 0px;
     right: 0px;
-    border-radius: 10px;
+    border-radius: 10px !important;
+    
 }
 
 .pagerClass li{

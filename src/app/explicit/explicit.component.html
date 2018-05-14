@@ -169,7 +169,7 @@
     </div>
   <div class="row">
       
-    <div class="col-sm-2" style="padding-bottom:25px;" *ngFor="let entry of pageResults">
+    <div class="col-sm-2" style="padding-bottom:25px;min-width:300px;" *ngFor="let entry of pageResults">
       <div class="col-md-12" style="padding-bottom:0px;text-align:center;">
 
         <div *ngIf="entry.thumbnail" class="thumbnail" style="border-radius: 10px;"><a [href]='sanitizer.bypassSecurityTrustResourceUrl(entry.link)' target="blank"><img src="../assets/Images/{{entry.thumbnail}}" class="container-fluid" style="max-height:250px; max-width:300px;border-radius: 10px;" alt="" ></a></div>
