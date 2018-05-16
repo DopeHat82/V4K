@@ -127,6 +127,8 @@
                                     <span style="font-size:12pt;color:purple;">{{sexAct.keyword}}</span>
                                     <div [innerHTML]="sexAct.description"></div>
                                     <div style="padding-top:20px;padding-bottom:25px; color:darkblue;" [innerHTML]="sexAct.tryThis"></div>
+                                    <app-add-comment [componentId]="'Sexplore'" [postedArticleId]="sexAct.id" ></app-add-comment>
+                                    <div style="display:none;">
                                     <div id="Show{{sexAct.id}}" style="padding-top:20px;padding-bottom:25px; color:#C60000; cursor:pointer; font-size:10pt;"
                                         (click)="DisplayDIV('Cmnt' + sexAct.id); HideDIV('Show' + sexAct.id);DisplayDIV('Hide' + sexAct.id);">Show Comments and Stories from Contributors and Members +</div>
                                     <div id="Hide{{sexAct.id}}" style="padding-top:20px;padding-bottom:25px; color:#C60000;cursor:pointer; font-size:10pt; display:none;"
@@ -144,6 +146,7 @@
 
                                         </div>
                                     </div>
+                                </div>
                                 </div>
 
                             </div>

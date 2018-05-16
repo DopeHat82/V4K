@@ -1,0 +1,58 @@
+[
+    {
+        "id": "1",
+        "userName": "Kris@V4K",
+        "type": "Kink",
+        "memberStatus": "Contributor",
+        "password": "$123"
+    },
+    {
+        "id": "2",
+        "userName": "Emmy",
+        "type": "Vanilla",
+        "memberStatus": "Member",
+        "password": "$123"
+    },
+    {
+        "id": "3",
+        "userName": "Rosey",
+        "type": "Vanilla",
+        "memberStatus": "Member",
+        "password": "$123"
+    },
+    {
+        "id": "4",
+        "userName": "Sara@V4k",
+        "type": "Vanilla",
+        "memberStatus": "Contributor",
+        "password": "$123"
+    },
+    {
+        "id": "4",
+        "userName": "BeckS",
+        "type": "Vanilla",
+        "memberStatus": "Member",
+        "password": "$123"
+    },
+    {
+        "id": "4",
+        "userName": "Jen@V4k",
+        "type": "Kink",
+        "memberStatus": "Contributor",
+        "password": "$123"
+    },
+    {
+        "id": "4",
+        "userName": "Gem",
+        "type": "Kink",
+        "memberStatus": "Member",
+        "password": "$123"
+    },
+    {
+        "id": "3",
+        "userName": "coffeeGirl",
+        "type": "Vanilla",
+        "memberStatus": "Member",
+        "password": "$123"
+    }
+]

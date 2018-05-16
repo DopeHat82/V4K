@@ -15,6 +15,7 @@ import { SexploreComponent } from './sexplore/sexplore.component';
 import { ShopComponent } from './shop/shop.component';
 import { ExplicitComponent } from './explicit/explicit.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { MembersComponent } from './members/members.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     SexploreComponent,
     ShopComponent,
     ExplicitComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule,

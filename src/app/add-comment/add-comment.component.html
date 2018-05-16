@@ -1,8 +1,29 @@
-<div class="container-fluid">
-  <form id="formNewProduct" name="formNewProduct" #commentData = "ngForm" (ngSubmit) = "addComment(commentData.value)">
-    <label>user: </label> <input type="text" name="user" id="user" placeholder="user" ngModel><br/>
-    <label>Id </label> <input type="text" name="contentId" id="contentId" placeholder="contentId" ngModel><br/>
-    <input type="submit" value="Add Comment">
-  </form>
 
+
+<div id="Show{{postedArticleId}}" style="padding-top:20px;padding-bottom:25px; color:#C60000; cursor:pointer; font-size:10pt;"
+(click)="DisplayDIV('Cmnt' + postedArticleId); HideDIV('Show' + postedArticleId);DisplayDIV('Hide' + postedArticleId);">Show Comments and Stories from Contributors and Members +</div>
+<div id="Hide{{postedArticleId}}" style="padding-top:20px;padding-bottom:25px; color:#C60000;cursor:pointer; font-size:10pt; display:none;"
+(click)="HideDIV('Cmnt' + postedArticleId); HideDIV('Hide' + postedArticleId); DisplayDIV('Show' + postedArticleId)">Hide Comments and Stories from Contributors and Members -</div>
+
+<div id="Cmnt{{postedArticleId}}" style="display:none;">
+    <div *ngIf="userData.userName" class="container-fluid">
+        <form id="formNewProduct" name="formNewProduct" #commentData = "ngForm" (ngSubmit) = "addComment(commentData.value)">
+          <div style="padding-bottom:10px;">
+          <textarea type="text"  rows="3" name="comment" id="comment" placeholder="Write your comment" class="form-control" ngModel ></textarea>
+          </div>
+          <div style="padding-bottom:10px;text-align:right;">
+          <input type="submit" class="btn btn-outline-primary " value="Add Comment">
+          </div>
+        </form>
+      </div>
+<div *ngFor="let comment of userComments">
+    <div *ngIf="(userComments!.length > 1)">
+        <span style="font-size:10pt;color:#C60000;">{{comment.user}} - {{comment.memberStatus}}</span>
+        <span style="font-size:10pt;color:purple;">({{comment.commentorType}})</span>
+        <span style="font-size:10pt;color:black;"><i>{{comment.timestamp}}</i></span>
+        <p style="font-size:10pt;">{{comment.comment}}</p>
+
+    </div>
+
+</div>
 </div>

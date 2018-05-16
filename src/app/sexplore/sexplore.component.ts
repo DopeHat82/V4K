@@ -95,7 +95,7 @@ export class SexploreComponent implements OnInit {
     userComments=[];
     fetchuserComments = function()
     {
-      this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/comments.json").subscribe(
+      this.http.get("http://18.221.222.34/comments").subscribe(
         (res: Response) => {
           this.userComments = res.json();
         }
