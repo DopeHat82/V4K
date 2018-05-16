@@ -17,7 +17,7 @@
         </form>
       </div>
 <div *ngFor="let comment of userComments">
-    <div *ngIf="(userComments!.length > 1)">
+    <div *ngIf="(userComments!.length > 0)">
         <span style="font-size:10pt;color:#C60000;">{{comment.user}} - {{comment.memberStatus}}</span>
         <span style="font-size:10pt;color:purple;">({{comment.commentorType}})</span>
         <span style="font-size:10pt;color:black;"><i>{{comment.timestamp}}</i></span>

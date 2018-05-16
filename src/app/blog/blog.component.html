@@ -83,7 +83,9 @@
                   <span style="font-size:16pt;font-weight:bold;" class="media-heading">{{blogEntry.title}}</span>  
                   <span style="font-size:10pt;" >{{blogEntry.author}}<small> <i>Posted on {{blogEntry.timestamp}}</i></small></span>
                   <div [innerHTML]="blogEntry.content" > <br /><br />{{blogEntry.comment}}</div>
+                  <app-add-comment [componentId]="'Blog'" [postedArticleId]="blogEntry.id" ></app-add-comment>
               </div>
+              
               
             </div>
 
