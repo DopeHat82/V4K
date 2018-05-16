@@ -80,7 +80,7 @@ export class AddCommentComponent implements OnInit {
 
 
   ngOnInit() {
-    this.isAuthenticated(); this.fetchuserComments(); console.log(this.userData)
+    this.isAuthenticated(); this.fetchuserComments(); 
   }
 
 }

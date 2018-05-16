@@ -65,7 +65,7 @@ success: '0';
   }
 
   ngOnInit() {
-    this.isAuthenticated(); console.log(this.success)
+    this.isAuthenticated(); 
   }
 
 }

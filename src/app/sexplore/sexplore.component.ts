@@ -54,7 +54,6 @@ export class SexploreComponent implements OnInit {
         var filter = _.filter(res.json(), function(sexacts)
         {return sexacts.threshold === thresholdFilter && sexacts.keyword === sexploring})
         this.sexActsArray = filter; 
-        console.log(this.sexActsFilter.threshold);
       }
     );
   }
