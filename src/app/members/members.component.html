@@ -1,103 +1,244 @@
 <div *ngIf="userData.userName == undefined" class="row adPanel">
- <div class="col-md-4"></div>
-<div class="col-md-4">
-    <form id="login" name="login" #authData = "ngForm" (ngSubmit) = "authUser(authData.value)">
-            <div class="col-md-12" style="padding-top:100px; text-align:center;"><label>You Must Login To Continue</label> <br /> <span style="font-size:10pt;" > Not a member? Want to join our community? <span onclick="DisplayDIV('accountApp');HideDIV('login');" style="text-decoration:underline; color:#C60000;cursor:pointer;" >Apply for an Account</span> today!</span></div>
-    <div class="col-md-12" style="padding-top:20px;">
-    <input type="text" placeholder="username" id="username" name="username" [(ngModel)]="model1" class="form-control" #username />
-    </div>
-    <div class="col-md-12" style="padding-top:20px;">
-        <input type="password" placeholder="password" id="password" name="password" [(ngModel)]="model2" class="form-control" #password />
-        </div>
-        <div class="col-md-12"style="padding-top:20px;">
-        <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Login" />
-        </div>
-        <div class="col-md-12" style="padding-top:20px; text-align:center; font-size:10pt;">
-                
-                        
-                       
-                        </div>                
-    </form>
-    <div id="accountApp"  class="col-md-12" style=" text-align:center; display:none;">
-                <div *ngIf="success == '1'" style="padding-top:100px;padding-bottom:100px;">Thank you for your interest in our community. We will review your application within the next 24 hours.</div>
-                <form id="apply" *ngIf="success == undefined" name="apply" #appData = "ngForm" (ngSubmit) = "userApply(appData.value)">
-                        <div class="col-md-12" style="padding-top:100px; text-align:center;"><label>Please fill out the fields below to apply for membership.</label> <br /> <span style="font-size:10pt;" >Already a member? Click <span onclick="HideDIV('accountApp');DisplayDIV('login');" style="text-decoration:underline; color:#C60000;cursor:pointer;" >here</span> to login. </span></div>
-                        <div class="col-md-12" style="padding-top:20px;">
-                                <input type="text" placeholder="What is your email address?" id="email" name="email" [(ngModel)]="model8" class="form-control" #email />
-                                </div>
-                        <div class="col-md-12" style="padding-top:20px;">
-                        <input type="text" placeholder="What would you like your username to be?" id="desiredUsername" name="desiredUsername" [(ngModel)]="model4" class="form-control" #desiredUsername />
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+                <form id="login" name="login" #authData="ngForm" (ngSubmit)="authUser(authData.value)">
+                        <div class="col-md-12" style="padding-top:100px; text-align:center;"><label>You Must Login To Continue</label> <br /> <span style="font-size:10pt;"> Not a member? Want to join our community? <span onclick="DisplayDIV('accountApp');HideDIV('login');" style="text-decoration:underline; color:#C60000;cursor:pointer;" >Apply for an Account</span>                                today!</span>
                         </div>
                         <div class="col-md-12" style="padding-top:20px;">
-                            <input type="password" placeholder="What would you like your password to be?" id="desiredPassword" name="desiredPassword" [(ngModel)]="model5" class="form-control" #desiredPassword />
-                            </div>
+                                <input type="text" placeholder="username" id="username" name="username" [(ngModel)]="model1" class="form-control" #username
+                                />
+                        </div>
                         <div class="col-md-12" style="padding-top:20px;">
-                                <div class="btn-group btn-group-toggle" placement="top" ngbTooltip="Select one" ngbRadioGroup name="radioBasic" [(ngModel)]="typeModel" name="type" id="type" style="width:100%;padding-left:15px; padding-right:15px;" #type>
-                                        <label ngbButtonLabel class="btn-primary" style="width:100%;">
+                                <input type="password" placeholder="password" id="password" name="password" [(ngModel)]="model2" class="form-control" #password
+                                />
+                        </div>
+                        <div class="col-md-12" style="padding-top:20px;">
+                                <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Login" />
+                        </div>
+                        <div class="col-md-12" style="padding-top:20px; text-align:center; font-size:10pt;">
+
+
+
+                        </div>
+                </form>
+                <div id="accountApp" class="col-md-12" style=" text-align:center; display:none;">
+                        <div *ngIf="success == '1'" style="padding-top:100px;padding-bottom:100px;">Thank you for your interest in our community. We will review your application within the next 24
+                                hours.</div>
+                        <form id="apply" *ngIf="success == undefined" name="apply" #appData="ngForm" (ngSubmit)="userApply(appData.value)">
+                                <div class="col-md-12" style="padding-top:100px; text-align:center;"><label>Please fill out the fields below to apply for membership.</label> <br /> <span style="font-size:10pt;">Already a member? Click <span onclick="HideDIV('accountApp');DisplayDIV('login');" style="text-decoration:underline; color:#C60000;cursor:pointer;" >here</span>                                        to login. </span>
+                                </div>
+                                <div class="col-md-12" style="padding-top:20px;">
+                                        <input type="text" placeholder="What is your email address?" id="email" name="email" [(ngModel)]="model8" class="form-control"
+                                                #email />
+                                </div>
+                                <div class="col-md-12" style="padding-top:20px;">
+                                        <input type="text" placeholder="What would you like your username to be?" id="desiredUsername" name="desiredUsername" [(ngModel)]="model4"
+                                                class="form-control" #desiredUsername />
+                                </div>
+                                <div class="col-md-12" style="padding-top:20px;">
+                                        <input type="password" placeholder="What would you like your password to be?" id="desiredPassword" name="desiredPassword"
+                                                [(ngModel)]="model5" class="form-control" #desiredPassword />
+                                </div>
+                                <div class="col-md-12" style="padding-top:20px;">
+                                        <div class="btn-group btn-group-toggle" placement="top" ngbTooltip="Select one" ngbRadioGroup name="radioBasic" [(ngModel)]="typeModel"
+                                                name="type" id="type" style="width:100%;padding-left:15px; padding-right:15px;" #type>
+                                                <label ngbButtonLabel class="btn-primary" style="width:100%;">
                                           <input ngbButton type="radio" [value]="1"> Vanilla
                                         </label>
-                                        <label ngbButtonLabel class="btn-primary" style="width:100%;">
+                                                <label ngbButtonLabel class="btn-primary" style="width:100%;">
                                           <input ngbButton type="radio"  [value]="2"> Kink
                                         </label>
-                                      </div>
-                        </div>
-                            <div class="col-md-12" style="padding-top:20px;">
-                                    <textarea rows="3" placeholder="Please tell us about yourself, your relationship, and how you plan on contributing to our community." id="aboutyou" name="aboutyou" [(ngModel)]="model6" class="form-control" #aboutyou ></textarea>
-                                    </div>
-                            <div class="col-md-12"style="padding-top:20px;">
-                            <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Apply" />
-                            </div>
-                                         
-                        </form>
-        </div>
-        <div id="accountApp"  class="col-md-12" style="padding-top:50px;font-size:11pt;padding-bottom:50px;">
-            <strong>About Membership</strong>
-            <p>We're a community of opposites that is all about encouraging each other to break down the Vanilla/Kink barriers that negatively affect our relationships. 
-                If you're the Vanilla partner in your relationship then Vanilla4Kink can culture, broaden, and help you understand your Kink. Are you the Kink in your 
-                relationship? We want to hear from you too! We'd like you to share your experiences, both struggles, and victories, on how your and your Vanilla partner 
-                keep the chemistry going. </p>
-                By joining V4K you get...
-                <ul>
-                        <li>Special discounts in our Adult Shop</li>
-                        <li>Special membership discounts to our Adult Sites</li>
-                        <li>The ability to comment, ask questions, and submit articles</li>
-                        <li>The ability to contact our panel of contributors</li>
-                        <li>A big thank you from us!!!</li>
-                        </ul>
-            <p>Why do I have to apply?</p>
-            <p>We screen our applicants to ensure sincerity, kindness, and quality. Users who visit our site are not looking for a bunch of slander or "trolls". We want our 
-                members to feel safe and encouraged everytime they visit our site. 
-                    <br /><br />
-                    "Vanilla4Kink is an adult community with adult content at its cleanest. We are couples helping couples."</p>
-        </div>
-</div>
-<div class="col-md-4"></div>
-</div>
-<div *ngIf="userData.userName"   class="container-fluid">
-  <div class="row" style="padding-top:20px;padding-left:50px;padding-right:50px;">
-        <div class="col-md-2">Welcome {{userData.userName}}!        
-        </div>
-        <div class="col-md-9">
-
-        <div class="col-md-12" style="padding-bottom:45px;">
-        <div style="border-bottom:1px solid pink"> Today's offers</div>
-        <div style="font-size:11pt;">Coming Soon!</div>
-        </div>
-        <div class="col-md-12" style="padding-bottom:45px;">
-                <div style="border-bottom:1px solid pink"> Recent Activty</div>
-                <div style="font-size:11pt;">Coming Soon!</div>
-                </div>
-                <div class="col-md-12" style="padding-bottom:45px;">
-                        <div style="border-bottom:1px solid pink"> Contributor of the Week</div>
-                        <div style="font-size:11pt;">Coming Soon!</div>
-                        </div>
-                        <div class="col-md-12" style="padding-bottom:45px;">
-                                <div style="border-bottom:1px solid pink"> News and Events</div>
-                                <div style="font-size:11pt;">Coming Soon!</div>
+                                        </div>
+                                </div>
+                                <div class="col-md-12" style="padding-top:20px;">
+                                        <textarea rows="3" placeholder="Please tell us about yourself, your relationship, and how you plan on contributing to our community."
+                                                id="aboutyou" name="aboutyou" [(ngModel)]="model6" class="form-control" #aboutyou></textarea>
+                                </div>
+                                <div class="col-md-12" style="padding-top:20px;">
+                                        <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Apply" />
                                 </div>
 
-    </div>
-        <div class="col-md-1" style="text-align:right;"><button class="btn btn-outline-primary"  (click)="logout()" >Logout</button></div>
-    
-  </div>
+                        </form>
+                </div>
+                <div id="accountApp" class="col-md-12" style="padding-top:50px;font-size:11pt;padding-bottom:50px;">
+                        <strong>About Membership</strong>
+                        <p>We're a community of opposites that is all about encouraging each other to break down the Vanilla/Kink
+                                barriers that negatively affect our relationships. If you're the Vanilla partner in your
+                                relationship then Vanilla4Kink can culture, broaden, and help you understand your Kink. Are
+                                you the Kink in your relationship? We want to hear from you too! We'd like you to share your
+                                experiences, both struggles, and victories, on how your and your Vanilla partner keep the
+                                chemistry going. </p>
+                        By joining V4K you get...
+                        <ul>
+                                <li>Special discounts in our Adult Shop</li>
+                                <li>Special membership discounts to our Adult Sites</li>
+                                <li>The ability to comment, ask questions, and submit articles</li>
+                                <li>The ability to contact our panel of contributors</li>
+                                <li>A big thank you from us!!!</li>
+                        </ul>
+                        <p>Why do I have to apply?</p>
+                        <p>We screen our applicants to ensure sincerity, kindness, and quality. Users who visit our site are
+                                not looking for a bunch of slander or "trolls". We want our members to feel safe and encouraged
+                                everytime they visit our site.
+                                <br /><br /> "Vanilla4Kink is an adult community with adult content at its cleanest. We are
+                                couples helping couples."</p>
+                </div>
+        </div>
+        <div class="col-md-4"></div>
+</div>
+<div *ngIf="userData.userName" class="container-fluid">
+        <div class="row" style="padding-top:20px;padding-left:50px;padding-right:50px;">
+                <div class="col-md-2">Welcome {{userData.userName}}!<br /><br />
+                
+                </div>
+                <div id="newSexAct" class="col-md-8" style="display:none;">
+                                <div style="text-align:left; padding-top:50px;">{{newSexActSuccess}}</div>
+                                <form id="newSexAct" name="newSexAct" #newSexAct="ngForm" (ngSubmit)="addNewSexAct(newSexAct.value)">
+                                                <div class="row">
+                                                                <div class="col-md-12" style="padding-top:20px;">Submit a new Sex Act for Sexplore</div>
+                                                        <div class="col-md-12" style="padding-top:20px;">
+                                                          <input type="text" placeholder="What do you call this Sex Act?" id="newSexActTitle" name="newSexActTitle" [(ngModel)]="modelNTBa" class="form-control"
+                                                                                        #newSexActTitle/>
+                                                                        </div>
+                                                        <div class="col-md-12" style="padding-top:20px;">
+                                                                <textarea rows="3" type="text" placeholder="Tell us it about it! What should couples try? What should they consider?" id="newSexActArticle" name="newSexActArticle" [(ngModel)]="modelNBAa" class="form-control"
+                                                                        #newSexActArticle></textarea>
+                                                        </div>
+                                                        <div class="col-md-12" style="padding-top:20px;">
+                                                                <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Submit for Review" />
+                                                        </div>
+                                                </div>
+                                        </form>
+
+
+                </div>
+                <div id="newBlog" class="col-md-8" style="display:none;">
+                        <div style="text-align:left; padding-top:50px;">{{newBlogSuccess}}</div>
+                                <form id="newBlogPost" name="newBlogPost" #newBlogPost="ngForm" (ngSubmit)="addNewBlog(newBlogPost.value)">
+                                                <div class="row">
+                                                                <div class="col-md-12" style="padding-top:20px;">Submit a new Blog Article</div>
+                                                        <div class="col-md-12" style="padding-top:20px;">
+                                                          <input type="text" placeholder="Add a title" id="newBlogTitle" name="newBlogTitle" [(ngModel)]="modelNTB" class="form-control"
+                                                                                        #newBlogTitle/>
+                                                                        </div>
+                                                        <div class="col-md-12" style="padding-top:20px;">
+                                                                <textarea rows="3" type="text" placeholder="Add an article" id="newBlogArticle" name="newBlogArticle" [(ngModel)]="modelNBA" class="form-control"
+                                                                        #newBlogArticle></textarea>
+                                                        </div>
+                                                        <div class="col-md-12" style="padding-top:20px;">
+                                                                <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Submit for Review" />
+                                                        </div>
+                                                </div>
+                                        </form>
+
+
+                </div>
+                <div id="main" class="col-md-8">
+
+                        <div class="col-md-12" style="padding-bottom:45px;">
+                                <div style="border-bottom:1px solid pink"> Today's offers</div>
+                                <div style="font-size:11pt;">
+                                        <div *ngIf="releveantAds?.length > 0" class="adPanel elementBackground panel panel-primary" style="padding-top:0px;">
+                                                <div *ngFor="let ad of releveantAds" style="padding-left:8px; padding-right:8px;font-size:11pt;">
+                                                        <div class="row" style=" padding-top:8px;  padding-bottom:8px;">
+                                                                <div class="col-md-4 " style="text-align:center;max-height:175px; max-width:175px; overflow:hidden;" [innerHTML]="ad.affiliateMedia"></div>
+                                                                <div class="col-md-8 ">
+                                                                        <div class="row">
+                                                                                <div class="col-md-12 " [innerHTML]="ad.description"></div>
+                                                                                <div class="col-md-12 "></div>
+
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                </div>
+
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-md-12" style="padding-bottom:45px;">
+                                <div style="border-bottom:1px solid pink"> Recent Activity</div>
+                                <div class="container-fluid" style="padding-bottom:15px;" *ngIf="userData.userName == 'Kris@V4K'">
+                                        <form id="rcntAct" name="rcntAct" #rcntAct="ngForm" (ngSubmit)="addActivity(rcntAct.value)">
+                                                <div class="row">
+                                                        <div class="col-md-10" style="padding-top:20px;">
+                                                                <input type="text" placeholder="Add an activity" id="newActivity" name="newActivity" [(ngModel)]="modelAA" class="form-control"
+                                                                        #newActivity />
+                                                        </div>
+                                                        <div class="col-md-2" style="padding-top:20px;">
+                                                                <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Add" />
+                                                        </div>
+                                                </div>
+                                        </form>
+
+                                </div>
+                                <div style="font-size:11pt;">
+                                        <ul  style="padding-top:10px;">
+                                                <li *ngFor="let ra of recentActivity" style="padding-left:8px;  padding-right:8px;font-size:11pt;">
+
+
+                                                        {{ra.description}}
+
+
+
+
+                                                </ul>
+
+                                        
+                                </div>
+                        </div>
+                        <div class="col-md-12" style="padding-bottom:45px;display:none;">
+                                <div style="border-bottom:1px solid pink"> Contributor of the Week</div>
+                                
+                                
+                                </div>
+                        <div class="col-md-12" style="padding-bottom:45px;">
+                                <div style="border-bottom:1px solid pink"> News and Events</div>
+                                <div class="container-fluid" style="padding-bottom:15px;" *ngIf="userData.userName == 'Kris@V4K'">
+                                                <form id="news" name="news" #news="ngForm" (ngSubmit)="addNews(news.value)">
+                                                        <div class="row">
+                                                                <div class="col-md-10" style="padding-top:20px;">
+                                                                  <input type="text" placeholder="Add a title" id="newTitle" name="newTitle" [(ngModel)]="modelNT" class="form-control"
+                                                                                                #newTitle/>
+                                                                                </div>
+                                                                <div class="col-md-10" style="padding-top:20px;">
+                                                                        <textarea rows="3" type="text" placeholder="Add an article" id="newArticle" name="newArticle" [(ngModel)]="modelNA" class="form-control"
+                                                                                #newArticle></textarea>
+                                                                </div>
+                                                                <div class="col-md-2" style="padding-top:20px;">
+                                                                        <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Add" />
+                                                                </div>
+                                                        </div>
+                                                </form>
+        
+                                        </div>
+                                <div class="col-md-12" >
+                                                <div *ngFor="let article of theNews" style="padding-left:8px; padding-right:8px;font-size:11pt;">
+                                                        <div class="row" style=" padding-top:8px;  padding-bottom:8px;">
+                                                                <div class="col-md-12 ">
+                                                                        <span style="color:blue;"><strong>{{article.title}}</strong></span > <span style="font-size:9pt;float:right;"><em>{{article.timestamp}}</em></span>
+                                                                </div>
+                                                                 <div class="col-md-12 " [innerHTML]="article.description"></div>
+
+                                                                        
+                                                                </div>
+                                                        </div>
+
+                                            
+
+                                        </div>
+                        </div>
+
+                </div>
+                <div class="col-md-2">
+                               
+                                <ul style="color:#C60000;font-size:12pt;">
+                                     <li onclick="DisplayDIV('main');HideDIV('newBlog');HideDIV('newSexAct');" style="cursor: pointer;">Home</li>
+                                    <li onclick="DisplayDIV('newSexAct');HideDIV('newBlog');HideDIV('main');" style="cursor: pointer;">Submit a SexAct</li>
+                                    <li onclick="DisplayDIV('newBlog');HideDIV('newSexAct');HideDIV('main');" style="cursor: pointer;">Submit a Blog Post</li>
+                                    <li style="cursor: pointer;" (click)="logout()">Logout</li>
+                                </ul>
+                </div>
+
+        </div>
 </div>

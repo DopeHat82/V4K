@@ -676,6 +676,15 @@
         "name": "Adam&Eve",
         "type": "products",
         "description": "Too many to list! Visit our shop!"
+    },{
+        "id": "1",
+        "genre": "General",
+        "link": "http://vanilla4kink.adultshopping.com/",
+        "affiliateMedia": "<a target=\"blank\" href=\"http://vanilla4kink.adultshopping.com/\"><img class=\"container-fluid ad\" src=\"../assets/Images/ShopLogo1.jpg\" /></a>",
+        "logo": "../assets/Images/StoreFront/Thumbnails/anal-cat-beads.jpg",
+        "name": "Adam&Eve",
+        "type": "coupons",
+        "description": "Thanks for joining Vanilla4Kink.com. Please enjoy this coupon for $5.00 off anything in the V4K Adult Shop.<br /><br /><strong>IJOINEDV4K</strong><br /><span style=\"font-size:9pt; color:#C60000;\">Enter code at check out. Good through 9/16/2018.</span>"
     }
     
 ]
