@@ -1,0 +1,22 @@
+<div class="container-fluid" style="padding-bottom:15px; padding-top:15px;" >
+    <form id="mailingList" name="mailingList" #mailingList="ngForm" (ngSubmit)="addMailingList(mailingList.value)">
+            <div class="row">
+                <div class="col-md-12" style="text-align:center;"><img src="../assets/Images/Logo2.png" alt=""><br /><strong>{{success}}</strong></div>
+                    <div class="col-md-9" style="padding-top:20px;">
+                            <input type="text" placeholder="Enter you Email Address" id="newEmail" name="newEmail" [(ngModel)]="modelnewEmail" class="form-control"
+                                    #newEmail />
+                    </div>
+                    <div class="col-md-3" style="padding-top:20px;">
+                            <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Join" />
+                    </div>
+                    <div class="col-md-12" style="padding-top:20px;">
+                      <div class="row">
+                          <div class="col-md-5"></div>
+                        <div class="col-md-1"><a target="_blank" href="https://twitter.com/vanilla4kink?lang=en"><img src="../assets/Images/twitter.png" style="width:50px; height:50px;" alt="twitter"></a></div>
+                        <div class="col-md-1"><a target="_blank" href="https://www.tumblr.com/blog/vanilla4kink"><img src="../assets/Images/tumblr.jpg" style="width:50px; height:50px;" alt="tumblr"></a></div>
+                      </div>
+                    </div>
+            </div>
+    </form>
+
+</div>

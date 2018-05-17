@@ -16,6 +16,9 @@ import { ShopComponent } from './shop/shop.component';
 import { ExplicitComponent } from './explicit/explicit.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { MembersComponent } from './members/members.component';
+import { MailingListComponent } from './mailing-list/mailing-list.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MessagingComponent } from './messaging/messaging.component';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { MembersComponent } from './members/members.component';
     ShopComponent,
     ExplicitComponent,
     AddCommentComponent,
-    MembersComponent
+    MembersComponent,
+    MailingListComponent,
+    ContactUsComponent,
+    MessagingComponent
   ],
   imports: [
     BrowserModule,
