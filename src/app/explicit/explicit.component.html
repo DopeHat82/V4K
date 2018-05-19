@@ -18,65 +18,36 @@
               <div ngbDropdown class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;">
                   <button class="btn btn-outline-primary" id="dropdownBasic1" style="width:100%;text-align:left;" placeholder="Select a Genre" ngbDropdownToggle>{{searchParameters.genre}} </button>
                   <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button onclick="document.getElementById('genre').innerHTML='All';" (click)="updateSearchParameters('genre', 'All')" class="dropdown-item">All</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Anal';" (click)="updateSearchParameters('genre', 'Anal')" class="dropdown-item">Anal</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Ass Play';" (click)="updateSearchParameters('genre', 'Ass Play')"
-                      class="dropdown-item">Ass Play</button>
-                    <button onclick="document.getElementById('genre').innerHTML='BDSM';" (click)="updateSearchParameters('genre', 'BDSM')" class="dropdown-item">BDSM</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Cam Models';" (click)="updateSearchParameters('genre', 'Cam Models')"
-                      class="dropdown-item">Cam Models</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Straight';" (click)="updateSearchParameters('genre', 'Straight')"
-                      class="dropdown-item">Straight</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Domination/Submission';" (click)="updateSearchParameters('genre', 'Domination/Submission')"
-                      class="dropdown-item">Domination/Submission</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Feet Play';" (click)="updateSearchParameters('genre', 'Feet Play')"
-                      class="dropdown-item">Feet Play</button>
-                      <button onclick="document.getElementById('genre').innerHTML='Fisting';" (click)="updateSearchParameters('genre', 'Fisting')"
-                      class="dropdown-item">Fisting</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Foot Job';" (click)="updateSearchParameters('genre', 'Foot Job')"
-                      class="dropdown-item">Foot Job</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Masturbation';" (click)="updateSearchParameters('genre', 'Masturbation')"
-                      class="dropdown-item">Masturbation</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Public Sex';" (click)="updateSearchParameters('genre', 'Public Sex')"
-                      class="dropdown-item">Public Sex</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Role Playing';" (click)="updateSearchParameters('genre', 'Role Playing')"
-                      class="dropdown-item">Role Playing</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Squirting';" (click)="updateSearchParameters('genre', 'Squirting')"
-                      class="dropdown-item">Squirting</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Teasing';" (click)="updateSearchParameters('genre', 'Teasing')"
-                      class="dropdown-item">Teasing</button>
-                    <button onclick="document.getElementById('genre').innerHTML='Watersports';" (click)="updateSearchParameters('genre', 'Watersports')"
-                      class="dropdown-item">Watersports</button>
-                    <button onclick="document.getElementById('genre').innerHTML='SURPRISE ME!!';" (click)="updateSearchParameters('genre', 'SURPRISE')"
-                      class="dropdown-item">SURPRISE ME!!</button>
+                    <button *ngFor="let genre of genres" (click)="updateSearchParameters('genre', genre)" class="dropdown-item">{{genre}}</button>
+                    
             
                   </div>
                 </div>
           </div>
     </div>
-    <div class="col-md-2" style="padding-bottom:8px;min-width:275px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
+    <div class="col-md-3" style="padding-bottom:8px;min-width:300px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
         <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="thresholdModel" style="width:100%;padding-left:15px; padding-right:15px;">
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Low')" [value]="1"> Low
+              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Low')" [value]="1"> Low <span class="badge">{{lowTCnt}}</span>
             </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Medium')"  [value]="2"> Medium
+              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'Medium')"  [value]="2"> Medium <span class="badge">{{medTCnt}}</span>
             </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'High')" [value]="3"> High
+              <input ngbButton type="radio" (click)="updateSearchParameters('threshold', 'High')" [value]="3"> High <span class="badge">{{hiTCnt}}</span>
             </label>
           </div>
     </div>
-    <div class="col-md-2" style="padding-bottom:8px;min-width:275px;"><span style="font-size:9pt;padding-left:15px; ">Media Type</span><br />
+    <div class="col-md-3" style="padding-bottom:8px;min-width:300px;"><span style="font-size:9pt;padding-left:15px; ">Media Type</span><br />
         <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="mediaModel" style="width:100%;padding-left:15px; padding-right:15px;">
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Video')"[value]="1"> Videos
+              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Video')"[value]="1"> Videos <span class="badge">{{vidCnt}}</span>
             </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Images')"  [value]="2"> Images
+              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'Images')"  [value]="2"> Images <span class="badge">{{imgCnt}}</span>
             </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'All')" [value]="3"> All
+              <input ngbButton type="radio" (click)="updateSearchParameters('type', 'VR')" [value]="3"> VR <span class="badge">{{vrCnt}}</span>
             </label>
           </div>
         </div>
@@ -84,84 +55,6 @@
 </div>
 
 
-<div class="row" style="padding-top:15px; padding-bottom:15px; background-color:lightpink; border-bottom:1px solid pink;display:none;">
-  <div class="col-md-1" style=""></div>
-  <div class="col-md-3" style="padding-top:5px; padding-bottom:5px;">
-    <div ngbDropdown class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" style="width:100%;text-align:left;" ngbDropdownToggle>Genre <label id="genre" style="width:100%;"></label> </button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button onclick="document.getElementById('genre').innerHTML='All';" (click)="updateSearchParameters('genre', 'All')" class="dropdown-item">All</button>
-        <button onclick="document.getElementById('genre').innerHTML='Anal';" (click)="updateSearchParameters('genre', 'Anal')" class="dropdown-item">Anal</button>
-        <button onclick="document.getElementById('genre').innerHTML='Ass Play';" (click)="updateSearchParameters('genre', 'Ass Play')"
-          class="dropdown-item">Ass Play</button>
-        <button onclick="document.getElementById('genre').innerHTML='BDSM';" (click)="updateSearchParameters('genre', 'BDSM')" class="dropdown-item">BDSM</button>
-        <button onclick="document.getElementById('genre').innerHTML='Cam Models';" (click)="updateSearchParameters('genre', 'Cam Models')"
-          class="dropdown-item">Cam Models</button>
-        <button onclick="document.getElementById('genre').innerHTML='Straight';" (click)="updateSearchParameters('genre', 'Straight')"
-          class="dropdown-item">Straight</button>
-        <button onclick="document.getElementById('genre').innerHTML='Domination/Submission';" (click)="updateSearchParameters('genre', 'Domination/Submission')"
-          class="dropdown-item">Domination/Submission</button>
-        <button onclick="document.getElementById('genre').innerHTML='Feet Play';" (click)="updateSearchParameters('genre', 'Feet Play')"
-          class="dropdown-item">Feet Play</button>
-          <button onclick="document.getElementById('genre').innerHTML='Fisting';" (click)="updateSearchParameters('genre', 'Fisting')"
-          class="dropdown-item">Fisting</button>
-        <button onclick="document.getElementById('genre').innerHTML='Foot Job';" (click)="updateSearchParameters('genre', 'Foot Job')"
-          class="dropdown-item">Foot Job</button>
-        <button onclick="document.getElementById('genre').innerHTML='Masturbation';" (click)="updateSearchParameters('genre', 'Masturbation')"
-          class="dropdown-item">Masturbation</button>
-        <button onclick="document.getElementById('genre').innerHTML='Public Sex';" (click)="updateSearchParameters('genre', 'Public Sex')"
-          class="dropdown-item">Public Sex</button>
-        <button onclick="document.getElementById('genre').innerHTML='Role Playing';" (click)="updateSearchParameters('genre', 'Role Playing')"
-          class="dropdown-item">Role Playing</button>
-        <button onclick="document.getElementById('genre').innerHTML='Squirting';" (click)="updateSearchParameters('genre', 'Squirting')"
-          class="dropdown-item">Squirting</button>
-        <button onclick="document.getElementById('genre').innerHTML='Teasing';" (click)="updateSearchParameters('genre', 'Teasing')"
-          class="dropdown-item">Teasing</button>
-        <button onclick="document.getElementById('genre').innerHTML='Watersports';" (click)="updateSearchParameters('genre', 'Watersports')"
-          class="dropdown-item">Watersports</button>
-        <button onclick="document.getElementById('genre').innerHTML='SURPRISE ME!!';" (click)="updateSearchParameters('genre', 'SURPRISE')"
-          class="dropdown-item">SURPRISE ME!!</button>
-
-      </div>
-    </div>
-  </div>
-  <div class="col-md-2" style="padding-top:5px; padding-bottom:5px;">
-    <div ngbDropdown class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" style="width:100%;text-align:left;" ngbDropdownToggle>Threshold <label id="threshold" style="width:100%;"></label> </button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button onclick="document.getElementById('threshold').innerHTML='Low';" (click)="updateSearchParameters('threshold', 'Low')"
-          class="dropdown-item">Low - Keep it tame. Softcore stuff only.</button>
-        <button onclick="document.getElementById('threshold').innerHTML='Medium';" (click)="updateSearchParameters('threshold', 'Medium')"
-          class="dropdown-item">Medium - I'm Pretty cultured. But don't go too far.</button>
-        <button onclick="document.getElementById('threshold').innerHTML='High';" (click)="updateSearchParameters('threshold', 'High')"
-          class="dropdown-item">High - Gimmie Gimmie Gimmie. My freak flag is flying high!</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-1" style="padding-top:5px; padding-bottom:5px;">
-    <div ngbDropdown class="d-inline-block sexploreDropdown" style="width:100%;text-align:left;">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" style="width:100%;text-align:left;" ngbDropdownToggle>Type <label id="type" style="width:100%;"></label> </button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button onclick="document.getElementById('type').innerHTML='Videos';" (click)="updateSearchParameters('type', 'Video')" class="dropdown-item">Videos</button>
-        <button onclick="document.getElementById('type').innerHTML='Images';" (click)="updateSearchParameters('type', 'Images')"
-          class="dropdown-item">Images</button>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3" style="">
-    <div class="row">
-      <div class="col-md-8" style="padding-top:5px; padding-bottom:5px;">
-        <input type="text" placeholder="search by tag" id="searchKeyword" [(ngModel)]="model" [ngbTypeahead]="search" class="form-control" #keywordSearch />
-      </div>
-      <div class="col-md-4" style="padding-top:5px; padding-bottom:5px;">
-        <button class="btn btn-outline-primary sexploreDropdown" style="width:100%;" (click)="searchEntries(keywordSearch.value)">Search</button>
-      </div>
-
-
-    </div>
-  </div>
-  <div class="col-md-1" style=""></div>
-</div>
 
 <div class="container-fluid" style="padding-top:15px;">
     <div *ngIf="releveantAds.length < 1" class="" style="padding-top:10%; text-align:center;padding-bottom:50px;">
@@ -169,7 +62,7 @@
     </div>
   <div class="row">
       
-    <div class="col-sm-2" style="padding-bottom:25px;min-width:300px;" *ngFor="let entry of pageResults">
+    <div class="col-sm-2" style="padding-bottom:25px;min-width:300px;" *ngFor="let entry of pageResults | orderBy: reverse : true">
       <div class="col-md-12" style="padding-bottom:0px;text-align:center;">
 
         <div *ngIf="entry.thumbnail" class="thumbnail" style="border-radius: 10px;"><a [href]='sanitizer.bypassSecurityTrustResourceUrl(entry.link)' target="blank"><img src="../assets/Images/{{entry.thumbnail}}" class="container-fluid" style="max-height:250px; max-width:300px;border-radius: 10px;" alt="" ></a></div>

@@ -1,3 +1,43 @@
-<p>
-  messaging works!
-</p>
+<div id="msgCompose" style="display:none;" class="col-md-12" >
+    <form id="newMessage" name="newMessage" #newMessage="ngForm" (ngSubmit)="sendMessage(newMessage.value)">
+                    <div class="row">
+                                    <div class="col-md-12" style="padding-top:20px;border-bottom:1px solid pink">{{messageStatus}}<span onclick="HideDIV('msgCompose');DisplayDIV('msgCenter');" style="float:right; padding-right:5px; font-size:20pt; cursor:pointer; color:blue; ">-</span></div>
+                            <div class="col-md-12" style="padding-top:20px;">
+                              <input type="text" placeholder="To:" id="toMember" name="toMember" [(ngModel)]="model" class="form-control" [ngbTypeahead]="membersTA" #toMember/>
+                                            </div>
+                            <div class="col-md-12" style="padding-top:20px;">
+                                    <textarea rows="3" type="text" placeholder="What's your message" id="message" name="message" [(ngModel)]="modelmessage" class="form-control" #message>
+                                    </textarea>
+                            </div>
+                            <div class="col-md-6" style="padding-top:20px;">
+                                <input onclick="HideDIV('msgCompose');DisplayDIV('msgCenter');" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Cancel" />
+                             </div>
+                            <div class="col-md-6" style="padding-top:20px;">
+                                    <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Send" />
+                            </div>
+                    </div>
+            </form>
+
+
+</div>
+<div id="msgCenter" class="container-fluid" >
+    <div style="border-bottom:1px solid pink"> Messages <span onclick="HideDIV('msgCenter');DisplayDIV('msgCompose');" style="float:right; padding-right:5px; font-size:20pt; cursor:pointer; color:blue; ">+</span></div>
+    <div *ngIf="userMessages.length < 1" class="container-fluid" style="padding-top:20px; padding-bottom:20px;text-align:center;font-size:12pt; color:gray;" >You have no messages.</div>
+    <div class="container-fluid" style="border:1px solid pink; padding:0px 0px 0px 0px;">
+  <div class="container-fluid" style="border-top:1px solid pink;font-size:12pt; padding-top:5px; padding-bottom:5px;margin-right:0px; padding-right:0px;" *ngFor="let message of userMessages | orderBy: reverse : true">
+    <div class="row" style="width:100% !important; margin-right:0px;">
+      <div class="col-md-6" >{{message.from}}</div><div class="col-md-6" style="text-align:right;" >
+        <div class="row"><div class="col-md-6" ></div>
+        <div class="col-md-5" style="text-align:right;" >{{message.timestamp}}</div>
+        <div class="col-md-1" >
+        <span id="open{{message.id}}" style="cursor: pointer; font-size:10pt;color:blue;" (click)="DisplayDIV(message.id);DisplayDIV('close' + message.id);HideDIV('open' + message.id);">open</span>
+        <span id="close{{message.id}}" style="cursor: pointer; font-size:10pt;color:blue;display:none;" (click)="HideDIV(message.id);HideDIV('close' + message.id);DisplayDIV('open' + message.id);">close</span>
+        </div></div>
+      </div>
+    </div>
+    <div id="{{message.id}}" class="row" style="display:none; border-top:1px solid pink; background-color:aliceblue;padding-top:10px; padding-bottom:15px;width:100% !important; margin-right:0px;">
+      <div class="col-md-12" >{{message.message}}</div>
+    </div>
+  </div>
+</div>
+</div>

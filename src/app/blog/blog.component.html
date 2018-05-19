@@ -70,7 +70,7 @@
     </div>
   </div>
 
-<div  class="container-fluid" style="padding-top:25px;" *ngFor = "let blogEntry of blogEntries">
+<div  class="container-fluid" style="padding-top:25px;" *ngFor = "let blogEntry of blogEntries | orderBy: reverse : true">
   <div id="{{blogEntry.id}}"  class="row" >
       <div class="col-md-10">
           <div class="row" >

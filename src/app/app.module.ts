@@ -19,7 +19,7 @@ import { MembersComponent } from './members/members.component';
 import { MailingListComponent } from './mailing-list/mailing-list.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MessagingComponent } from './messaging/messaging.component';
-
+import {OrderPipe} from '../assets/services/orderby';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { MessagingComponent } from './messaging/messaging.component';
     MembersComponent,
     MailingListComponent,
     ContactUsComponent,
-    MessagingComponent
+    MessagingComponent,
+    OrderPipe
   ],
   imports: [
     BrowserModule,
