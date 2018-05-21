@@ -15,13 +15,13 @@
     <div class="col-md-2" style="padding-bottom:8px;min-width:275px;"><span style="font-size:9pt;padding-left:15px; ">Threshold</span><br />
         <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="thresholdModel" style="width:100%;padding-left:15px; padding-right:15px;">
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-                  <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','Low')" [value]="1"> Low
+                  <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','Low')" [value]="1"> Low <span class="badge">{{lowTCnt}}</span>
                 </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-                  <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','Medium')"  [value]="2"> Medium
+                  <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','Medium')"  [value]="2"> Medium <span class="badge">{{medTCnt}}</span>
                 </label>
             <label ngbButtonLabel class="btn-primary" style="width:100%;">
-                  <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','High')" [value]="3"> High
+                  <input ngbButton type="radio" (click)="updateSexActsFilter('threshold','High')" [value]="3"> High <span class="badge">{{hiTCnt}}</span>
                 </label>
         </div>
     </div>

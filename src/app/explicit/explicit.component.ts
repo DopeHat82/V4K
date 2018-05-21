@@ -104,7 +104,7 @@ export class ExplicitComponent implements OnInit {
     { this.searchParameters.type = value; }
     if(this.isSearch == true){this.searchEntries(this.selectedKeyword);}
     else{
-    this.fetchResultsData();this.cntResults(this.pageArray);
+    this.fetchResultsData();
     }
   }
 
@@ -189,7 +189,9 @@ hiTCnt = '';
     if(lowTCntFilter.length > 0){ this.lowTCnt = lowTCntFilter.length;}
     else{this.lowTCnt = "";}
     if(medTCntFilter.length > 0) { this.medTCnt = medTCntFilter.length;}
+    else{this.medTCnt = "";}
     if(hiTCntFilter.length > 0){ this.hiTCnt = hiTCntFilter.length;}
+    else{this.hiTCnt = "";}
 
 
  }
@@ -209,8 +211,8 @@ hiTCnt = '';
     var filter = _.filter(this.resultsArray, function (results)
     { return results.genre === genre && results.threshold === threshold && results.type === type})
     this.pageArray = filter; this.collectionSize = this.pageArray.length;
-    if(this.resultsArray.length > 0){this.cntResults(this.resultsArray);}
-    else{this.cntResults(this.pageArray);}
+   /* if(this.resultsArray.length > 0){this.cntResults(this.resultsArray);}
+    else{this.cntResults(this.pageArray);} */
     return this.pageArray.slice((this.currentPage-1)*10,this.currentPage*20);
     
     }

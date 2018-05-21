@@ -53,10 +53,34 @@ export class SexploreComponent implements OnInit {
       (res: Response) => {
         var filter = _.filter(res.json(), function(sexacts)
         {return sexacts.threshold === thresholdFilter && sexacts.keyword === sexploring})
-        this.sexActsArray = filter; 
+        this.sexActsArray = filter;
+        
+      var lowFilter = _.filter(res.json(), function (results)
+      { return results.keyword === sexploring && results.threshold === 'Low'})
+      
+      var MedFilter = _.filter(res.json(), function (results)
+        { return results.keyword === sexploring && results.threshold === 'Medium'})
+  
+      var highFilter = _.filter(res.json(), function (results)
+        { return results.keyword === sexploring && results.threshold === 'High'}) 
+  
+        if(lowFilter.length > 0){ this.lowTCnt = lowFilter.length;}
+        else{this.lowTCnt = "";}
+        if(MedFilter.length > 0) { this.medTCnt = MedFilter .length;}
+        else{this.medTCnt = "";}
+        if(highFilter.length > 0){ this.hiTCnt = highFilter.length;}
+        else{this.hiTCnt = "";}
+
       }
     );
+    
   }
+
+  lowTCnt = '';
+  medTCnt = '';
+  hiTCnt = '';
+
+  
   mediaSwitch: "";
   releveantAds=[];
  fetchReleveantAds = function(selectedGenre){
