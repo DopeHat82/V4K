@@ -9,3 +9,9 @@ img{height: 100%; width:100%;}
     border-radius: 10px;
     
 }
+
+.hiBtnContainer{
+  border-radius: 7px;
+  cursor: pointer;
+  padding:5px 5px 5px 5px;
+}
