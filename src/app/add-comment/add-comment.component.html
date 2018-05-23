@@ -6,7 +6,7 @@
 (click)="HideDIV('Cmnt' + postedArticleId); HideDIV('Hide' + postedArticleId); DisplayDIV('Show' + postedArticleId)">{{titleClose}} -</div>
 
 <div id="Cmnt{{postedArticleId}}" style="display:none;">
-        <div *ngIf="userData.length == 'undefined'" class="container-fluid">
+        <div *ngIf="userData.userName == undefined" class="container-fluid">
             <p style="text-align:center;  padding-bottom:15px; color:gray;">You must be logged in to contribute. Please <span onclick="window.location.href ='http://vanilla4kink.com/?section=members';" style="color:blue; cursor:pointer;">log in or apply</span> for an account.</p>
         </div>
     <div *ngIf="userData.userName" class="container-fluid">
