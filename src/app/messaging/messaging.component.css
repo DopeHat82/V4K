@@ -1,0 +1,17 @@
+.formHeading{
+    border-bottom:1px solid pink; 
+    padding-top:10px; 
+    padding-bottom:10px; 
+    color:#C60000; 
+    background-color:pink;
+}
+
+.composeBtn{
+    border-radius: 3px;
+    padding:3px 3px 3px 3px;
+    background-color:white;
+    border:1px solid blue;
+    color:blue;
+    cursor:pointer;
+    font-size:9pt;
+}

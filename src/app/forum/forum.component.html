@@ -1,0 +1,95 @@
+<div class="row" style="padding-bottom:5px;border-bottom:1px solid lightpink;">
+    <div class="col-md-3" style="padding-top:15px;"><img src="../assets/Images/LogoForum1.png" class="container-fluid" /></div>
+    <div class="col-md-3" style="min-width:375px;">
+        <div id="searchCell"  style="padding-left:15px;padding-bottom:8px; padding-right:15px;">
+            <span style="font-size:9pt;">Search by Topics or Titles </span>
+            <table style="width:100%;"><tr><td style="padding-right:8px;">
+              <input type="text" placeholder="search by topic or title" id="searchKeyword" [(ngModel)]="model" [ngbTypeahead]="search" class="form-control" #keywordSearch />
+            </td><td>
+                <button ngbButtonLabel (click)="searchEntries(keywordSearch.value);" class="btn-primary" style="width:100%;">
+                   Search
+                </button>            
+              </td></tr></table>  
+             
+          </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+          <div class="row">
+              <div id="newThread" class="col-md-12" style="display:none; ">
+                  <div class="col-md-12" style="background-color:pink; margin-top:35px;margin-bottom:20px;color:#C60000;">Start a New Thread</div>
+                  <div *ngIf="userData.userName == undefined" class="container-fluid" style="text-align:center; color:gray;">You must be logged in to create new threads.</div>
+                  <div *ngIf="userData.userName" class="container-fluid" style="">
+                      <form id="formNewThread" name="formNewThread" #formNewThread = "ngForm" (ngSubmit) = "addThread(formNewThread.value)">
+                          <div style="padding-bottom:10px;">
+                              <input type="text" placeholder="Whats the title of your thread" id="title" name="title" [(ngModel)]="modelNTB" class="form-control"
+                              #title/>
+                          </div>
+                        <div style="padding-bottom:10px;">
+                        <textarea type="text"  rows="3" name="post" id="post" placeholder="Write your question or topic" class="form-control" [(ngModel)]="modelPost" #post></textarea>
+                        </div>
+                        <div style="padding-bottom:10px;">
+                            <input type="text" placeholder="Add a tag (optional)" id="tag" name="tag" [(ngModel)]="modelNTBa" class="form-control"
+                            #tag/>
+                        </div>
+                        <div style="padding-bottom:10px;text-align:right;">
+                        <input type="submit" (click)="post.value='';tag.value=''; title.value='';" class="btn btn-outline-primary " value="Add Thread">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+          <div *ngIf="searchResultsArray.length > 0" class="row">
+              <div id="AllActiveThreads" class="col-md-12" style="background-color:pink; margin-top:35px;margin-bottom:20px;color:#C60000;">Search Results</div>
+              <div class="col-md-12" style="margin-bottom:20px;" *ngFor="let newest of searchResultsArray" >
+                  <div id="{{newest.id}}" class="col-md-12" style="border:1px solid lightpink;" >
+                  <span style="font-size:13pt; color:#C60000;text-decoration:underline;">{{newest.title}}</span>  <span style="font-size:10pt; color:gray;"><em>by {{newest.author}} on {{newest.timestamp}}</em></span>
+                  <p style="font-size:11pt; ">{{newest.thread}}</p>
+                  <app-add-comment [componentId]="'Forum'" [postedArticleId]="newest.id" ></app-add-comment>
+                  <span style="font-size:10pt; color:gray; float:right;">#{{newest.tag}}</span> 
+                  </div>
+    
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12" style="background-color:pink; margin-top:35px;margin-bottom:20px;color:#C60000;">Newest Thread</div>
+              <div class="col-md-12" *ngFor="let newest of newThreads" >
+                  <div id="{{newest.id}}" class="col-md-12" style="border:1px solid lightpink;" >
+                <span style="font-size:13pt; color:#C60000;text-decoration:underline;">{{newest.title}}</span>  <span style="font-size:10pt; color:gray;"><em>by {{newest.author}} on {{newest.timestamp}}</em></span>
+                <p style="font-size:11pt; ">{{newest.thread}}</p>
+                <app-add-comment [componentId]="'Forum'" [postedArticleId]="newest.id" ></app-add-comment>
+                <span style="font-size:10pt; color:gray; float:right;">#{{newest.tag}}</span> 
+                  </div>
+
+              </div>
+          </div>
+          <div class="row" style="display:none;">
+              <div class="col-md-12" style="border-bottom:1px solid pink; padding-top:35px;">Most Popular Threads</div>
+          </div>
+          <div class="row">
+          <div id="AllActiveThreads" class="col-md-12" style="background-color:pink; margin-top:35px;margin-bottom:20px;color:#C60000;">Active Threads</div>
+          <div class="col-md-12" style="margin-bottom:20px;" *ngFor="let newest of resultsArray | orderBy: reverse : true" >
+              <div id="{{newest.id}}" class="col-md-12" style="border:1px solid lightpink;" >
+              <span style="font-size:13pt; color:#C60000;text-decoration:underline;">{{newest.title}}</span>  <span style="font-size:10pt; color:gray;"><em>by {{newest.author}} on {{newest.timestamp}}</em></span>
+              <p style="font-size:11pt; ">{{newest.thread}}</p>
+              <app-add-comment [componentId]="'Forum'" [postedArticleId]="newest.id" ></app-add-comment>
+              <span style="font-size:10pt; color:gray; float:right;">#{{newest.tag}}</span> 
+              </div>
+
+            </div>
+      </div>
+      </div>
+      <div class="col-md-2">
+          <div class="container-fluid" style="padding-left:10px;font-size:9pt; padding-top:60px; padding-left:40px;">
+              <ul class="list-unstyled">
+                <li ><a onclick="DisplayDIV('newThread')" style="color:blue; font-weight:bold; cursor:pointer;">New Thread</a></li>
+                <li *ngFor = "let newest of resultsArray"><a href="javascript:;" (click)="gotoAnchor(newest.id)">{{newest.title}}</a></li>
+              </ul></div>
+      </div>
+      <div class="col-md-1"></div>
+  </div>
+
+  

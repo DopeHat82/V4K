@@ -15,9 +15,15 @@ userInfo=[];
 userData= {};
 applicantObj:object = {};
 success: '0';
-newBlogSuccess: "";
-newSexActSuccess : "";
+newBlogSuccess: "Submit a new Blog or Article";
+newSexActSuccess : "Submit a new Sex Act";
   constructor(private http: Http) { }
+
+  populateTitles = function(){
+    this.newBlogSuccess= "Submit a new Blog or Article";
+    this.newSexActSuccess= "Submit a new Sex Act";
+
+  }
 
   isAuthenticated = function(){
     if (document.cookie.split(';').filter(function(item) {
@@ -176,7 +182,7 @@ newSexActSuccess : "";
      }
 
   ngOnInit() {
-    this.isAuthenticated(); this.fetchReleveantAds(); this.fetchRecentActivity(); this.fetchNews();
+    this.isAuthenticated(); this.fetchReleveantAds(); this.fetchRecentActivity(); this.fetchNews();this.populateTitles();
   }
 
 }

@@ -22,6 +22,10 @@ export class BlogComponent implements OnInit {
       );
     }
     
+    gotoAnchor = function(anchorId){
+      var $link = (this);
+      window.location.hash = anchorId;
+    }
 
   ngOnInit() {
     this.fetchData();

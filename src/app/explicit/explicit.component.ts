@@ -131,7 +131,7 @@ export class ExplicitComponent implements OnInit {
           if (stage[i].keyword.tag5 === keyword) {
             this.resultsArray.push(stage[i]);
           }
-          console.log(this.resultsArray)
+          
         }
         
         }

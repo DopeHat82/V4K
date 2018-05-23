@@ -62,7 +62,7 @@
           <div class="container-fluid" style="padding-left:10px;font-size:9pt; ">
             <ul class="list-unstyled">
               <li ><a href="#About">About this blog</a></li>
-              <li *ngFor = "let blogEntry of blogEntries"><a href="#{{blogEntry.id}}">{{blogEntry.title}}</a></li>
+              <li *ngFor = "let blogEntry of blogEntries"><a href="javascript:;" (click)="gotoAnchor(blogEntry.id)">{{blogEntry.title}}</a></li>
             </ul></div>
           <div class="panel-body" style="padding-left:10px;font-size:9pt; ">
             </div>

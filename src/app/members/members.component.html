@@ -28,6 +28,17 @@
                                 <div class="col-md-12" style="padding-top:100px; text-align:center;"><label>Please fill out the fields below to apply for membership.</label> <br /> <span style="font-size:10pt;">Already a member? Click <span onclick="HideDIV('accountApp');DisplayDIV('login');" style="text-decoration:underline; color:#C60000;cursor:pointer;" >here</span>                                        to login. </span>
                                 </div>
                                 <div class="col-md-12" style="padding-top:20px;">
+                                                <div class="btn-group btn-group-toggle" placement="top" ngbTooltip="Select one" ngbRadioGroup name="radioBasic1" [(ngModel)]="typeModel1"
+                                                        name="type" id="type" style="width:100%;padding-left:15px; padding-right:15px;" #type>
+                                                        <label ngbButtonLabel class="btn-primary" style="width:100%;">
+                                                  <input ngbButton type="radio" [value]="1"> I am over 18
+                                                </label>
+                                                        <label ngbButtonLabel class="btn-primary" style="width:100%;">
+                                                  <input ngbButton type="radio" onclick="alert('Sorry! Adults Only!');window.location.href ='https://www.google.com/search?q=100+things+for+kids+to+do&oq=100+things+for+kids+to+do&aqs=chrome..69i57.4613j0j7&sourceid=chrome&ie=UTF-8';"  [value]="2"> I am under 18
+                                                </label>
+                                                </div>
+                                        </div>
+                                <div class="col-md-12" style="padding-top:20px;">
                                         <input type="text" placeholder="What is your email address?" id="email" name="email" [(ngModel)]="model8" class="form-control"
                                                 #email />
                                 </div>
@@ -86,16 +97,25 @@
         </div>
         <div class="col-md-4"></div>
 </div>
-<div *ngIf="userData.userName" class="container-fluid">
-        <div class="row" style="padding-top:20px;">
-                <div class="col-md-2" style="text-align:center;">Welcome {{userData.userName}}!<br /><br />
-                
+<div *ngIf="userData.userName" class="container-fluid" style="height:100%;">
+        <div class="row" style=" height:100%; padding:0px 0px 0px 0px;">
+                <div class="col-md-2" style="border-right:1px solid pink; height:100%;padding:0px 0px 0px 0px;">
+                                <div class="col-md-12" style="text-align:center; padding-top:10px;padding-bottom:10px;color:#C60000;"> Welcome {{userData.userName}}!</div>
+                                <div class="col-md-12" style="background-color:white;margin:0px 0px 0px 0px; padding:0px 0px 0px 0px;" >
+                     
+
+                                <div id="homeBtn" onclick="onMemberMenuClick('main', 'homeBtn');" class="menuItem active" style="border-top:1px solid pink;" >Home</div>
+                                <div id="messageBtn" onclick="onMemberMenuClick('messages', 'messageBtn');" class="menuItem">Messages </div>
+                                <div id="SASABtn" onclick="onMemberMenuClick('newSexAct', 'SASABtn');"  class="menuItem">Submit a SexAct</div>
+                                <div id="SABPBtn" onclick="onMemberMenuClick('newBlog', 'SABPBtn');"  class="menuItem">Submit a Blog Post</div>
+                                <div id="logoutBtn" (click)="logout()" class="menuItem">Logout</div>
+                                   
+                                </div>
                 </div>
-                <div id="newSexAct" class="col-md-8" style="display:none;">
-                                <div style="text-align:left; padding-top:50px;">{{newSexActSuccess}}</div>
+                <div id="newSexAct" class="col-md-10" style="display:none;">
                                 <form id="newSexAct" name="newSexAct" #newSexAct="ngForm" (ngSubmit)="addNewSexAct(newSexAct.value)">
                                                 <div class="row">
-                                                                <div class="col-md-12" style="padding-top:20px;">Submit a new Sex Act for Sexplore</div>
+                                                                <div class="col-md-12 formHeading" >{{this.newSexActSuccess}}</div>
                                                         <div class="col-md-12" style="padding-top:20px;">
                                                           <input type="text" placeholder="What do you call this Sex Act?" id="newSexActTitle" name="newSexActTitle" [(ngModel)]="modelNTBa" class="form-control"
                                                                                         #newSexActTitle/>
@@ -105,18 +125,17 @@
                                                                         #newSexActArticle></textarea>
                                                         </div>
                                                         <div class="col-md-12" style="padding-top:20px;">
-                                                                <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Submit for Review" />
+                                                                <input type="submit" (click)="newSexActArticle.value='';newSexActTitle.value='';" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Submit for Review" />
                                                         </div>
                                                 </div>
                                         </form>
 
 
                 </div>
-                <div id="newBlog" class="col-md-8" style="display:none;">
-                        <div style="text-align:left; padding-top:50px;">{{newBlogSuccess}}</div>
+                <div id="newBlog" class="col-md-10" style="display:none;">
                                 <form id="newBlogPost" name="newBlogPost" #newBlogPost="ngForm" (ngSubmit)="addNewBlog(newBlogPost.value)">
                                                 <div class="row">
-                                                                <div class="col-md-12" style="padding-top:20px;">Submit a new Blog Article</div>
+                                                                <div class="col-md-12 formHeading" >{{newBlogSuccess}}</div>
                                                         <div class="col-md-12" style="padding-top:20px;">
                                                           <input type="text" placeholder="Add a title" id="newBlogTitle" name="newBlogTitle" [(ngModel)]="modelNTB" class="form-control"
                                                                                         #newBlogTitle/>
@@ -126,20 +145,20 @@
                                                                         #newBlogArticle></textarea>
                                                         </div>
                                                         <div class="col-md-12" style="padding-top:20px;">
-                                                                <input type="submit" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Submit for Review" />
+                                                                <input type="submit" (click)="newBlogArticle.value='';newBlogTitle.value='';" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Submit for Review" />
                                                         </div>
                                                 </div>
                                         </form>
 
 
                 </div>
-                <div id="messages" class="col-md-8" style="padding-bottom:45px; display:none;">
+                <div id="messages" class="col-md-10" style=" display:none;">
                                 <app-messaging></app-messaging>
                 </div>
                 
-                <div id="main" class="col-md-8">
+                <div id="main" class="col-md-10">
                                 
-                        <div class="col-md-12" style="padding-bottom:45px;">
+                        <div class="col-md-12" style="padding-bottom:45px;padding-top:20px;">
                                 <div style="border-bottom:1px solid pink"> Today's offers</div>
                                 <div style="font-size:11pt;">
                                         <div *ngIf="releveantAds?.length > 0" class="adPanel elementBackground panel panel-primary" style="padding-top:0px;">
@@ -160,7 +179,7 @@
                                         </div>
                                 </div>
                         </div>
-                        <div class="col-md-12" style="padding-bottom:45px;">
+                        <div class="col-md-12" style="padding-bottom:45px; padding-top:10px;">
                                 <div style="border-bottom:1px solid pink"> Recent Activity</div>
                                 <div class="container-fluid" style="padding-bottom:15px;" *ngIf="userData.userName == 'Kris@V4K'">
                                         <form id="rcntAct" name="rcntAct" #rcntAct="ngForm" (ngSubmit)="addActivity(rcntAct.value)">
@@ -236,16 +255,7 @@
                         </div>
 
                 </div>
-                <div class="col-md-2">
-                               
-                                <ul style="color:#C60000;font-size:12pt;">
-                                     <li onclick="DisplayDIV('main');HideDIV('newBlog');HideDIV('newSexAct');HideDIV('messages');" style="cursor: pointer;">Home</li>
-                                     <li onclick="DisplayDIV('messages');HideDIV('newBlog');HideDIV('main');HideDIV('newSexAct');" style="cursor: pointer;">Messages</li>
-                                    <li onclick="DisplayDIV('newSexAct');HideDIV('newBlog');HideDIV('main');HideDIV('messages');" style="cursor: pointer;">Submit a SexAct</li>
-                                    <li onclick="DisplayDIV('newBlog');HideDIV('newSexAct');HideDIV('main');HideDIV('messages');" style="cursor: pointer;">Submit a Blog Post</li>
-                                    <li style="cursor: pointer;" (click)="logout()">Logout</li>
-                                </ul>
-                </div>
+               
 
         </div>
 </div>

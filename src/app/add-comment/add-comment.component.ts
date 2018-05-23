@@ -73,14 +73,37 @@ export class AddCommentComponent implements OnInit {
     );
   }
 
+  titleOpen: '';
+  titleClose: '';
 
+  getComponent = function(){
+    this.componentTitle = this.componentId;
+  }
 
+titleToggle = function(){
+  
+  var componentTitle = this.componentId;
 
+  if(componentTitle == "Forum"){this.titleOpen = "View all posts to this thread";}
+ 
+  if(componentTitle == "Blog"){this.titleOpen = "View all comments";}
 
+  if(componentTitle == "Sexplore"){this.titleOpen = "Show Comments and Stories from Contributors and Member";}
+      
+ 
+    
 
+  if(this.titleOpen === "View all posts to this thread") {this.titleClose = "Hide all posts to this thread";}
+
+  if(this.titleOpen === "View all comments"){this.titleClose = "Hide all comments";}
+
+  if(this.titleOpen === "Show Comments and Stories from Contributors and Member") {this.titleClose = "Hide Comments and Stories from Contributors and Members";}
+  
+
+}
 
   ngOnInit() {
-    this.isAuthenticated(); this.fetchuserComments(); 
+   this.titleToggle(); this.isAuthenticated(); this.fetchuserComments(); 
   }
 
 }

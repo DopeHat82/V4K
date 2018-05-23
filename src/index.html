@@ -44,7 +44,28 @@ html{height: 100%;}
     function HideDIV(d) { document.getElementById(d).style.display = "none"; }
     function DisplayDIV(d) { document.getElementById(d).style.display = "block"; }   
     function populateSexplore(value){ document.getElementById('Sexplore').innerHTML= value;}
-      
+    function onMemberMenuClick(id, btn)
+    {
+      HideDIV('newBlog');
+      HideDIV('newSexAct');
+      HideDIV('messages');
+      HideDIV('main');
+      DisplayDIV(id);
+
+      document.getElementById('homeBtn').style.backgroundColor="white"; document.getElementById('homeBtn').style.color="black"; 
+      document.getElementById('messageBtn').style.backgroundColor="white"; document.getElementById('messageBtn').style.color="black"; 
+      document.getElementById('SASABtn').style.backgroundColor="white"; document.getElementById('SASABtn').style.color="black"; 
+      document.getElementById('SABPBtn').style.backgroundColor="white"; document.getElementById('SABPBtn').style.color="black";
+      document.getElementById(btn).style.backgroundColor="pink"; document.getElementById(btn).style.color="#C60000"; 
+    }
+
+    function childBtnMouseOver(id){
+      document.getElementById(id).style.backgroundColor="blue"; document.getElementById(id).style.color="white"; 
+    }
+
+    function childBtnMouseOut(id){
+      document.getElementById(id).style.backgroundColor="white"; document.getElementById(id).style.color="blue"; 
+    }
     </script>
 </head>
 <body id="body" class="body-bgcolor">
