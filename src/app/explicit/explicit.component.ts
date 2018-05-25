@@ -142,7 +142,7 @@ export class ExplicitComponent implements OnInit {
   }
 
   fetchResultsData = function(){
-  this.http.get("../assets/json/explicit.json").subscribe(
+  this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/explicit.json").subscribe(
     (res: Response) => {
       this.resultsArray = res.json(); this.loadTags(this.resultsArray); this.loadGenre(this.resultsArray);this.cntResults(this.resultsArray);
     }
