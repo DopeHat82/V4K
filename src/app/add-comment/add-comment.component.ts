@@ -103,7 +103,7 @@ titleToggle = function(cnt){
 }
 
   ngOnInit() {
-   this.isAuthenticated(); this.fetchuserComments(); 
+   this.isAuthenticated(); this.fetchuserComments();
   }
 
 }

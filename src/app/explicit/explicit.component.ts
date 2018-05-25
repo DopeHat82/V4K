@@ -142,7 +142,7 @@ export class ExplicitComponent implements OnInit {
   }
 
   fetchResultsData = function(){
-  this.http.get("https://s3.us-east-2.amazonaws.com/v4k-content-provider/explicit.json").subscribe(
+  this.http.get("../assets/json/explicit.json").subscribe(
     (res: Response) => {
       this.resultsArray = res.json(); this.loadTags(this.resultsArray); this.loadGenre(this.resultsArray);this.cntResults(this.resultsArray);
     }
@@ -204,16 +204,15 @@ hiTCnt = '';
       var stageArray =[];
       var filter = _.filter(this.resultsArray, function (results)
       { return results.threshold === threshold && results.type === type})
-      this.pageArray = filter;this.collectionSize = this.pageArray.length / 20 * 10; 
-      return this.pageArray.slice((this.currentPage-1)*20,this.currentPage*20);
+      this.pageArray = filter;this.collectionSize = 0; this.collectionSize = this.pageArray.length / 30 * 10; 
+      return this.pageArray.slice((this.currentPage-1)*30,this.currentPage*30);
     }
     else {
     var filter = _.filter(this.resultsArray, function (results)
     { return results.genre === genre && results.threshold === threshold && results.type === type})
-    this.pageArray = filter; this.collectionSize = this.pageArray.length;
-   /* if(this.resultsArray.length > 0){this.cntResults(this.resultsArray);}
-    else{this.cntResults(this.pageArray);} */
-    return this.pageArray.slice((this.currentPage-1)*10,this.currentPage*20);
+    this.pageArray = filter; this.collectionSize = 0;  this.collectionSize = this.pageArray.length / 30 * 10;
+    console.log(this.collectionSize + "   -    " + this.currentPage + "   -    " + this.pageArray.length)
+    return this.pageArray.slice((this.currentPage-1)*30,this.currentPage*30); 
     
     }
     
