@@ -21,6 +21,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MessagingComponent } from './messaging/messaging.component';
 import {OrderPipe} from '../assets/services/orderby';
 import { ForumComponent } from './forum/forum.component';
+import { GeneralSubmissionComponent } from './general-submission/general-submission.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ForumComponent } from './forum/forum.component';
     ContactUsComponent,
     MessagingComponent,
     OrderPipe,
-    ForumComponent
+    ForumComponent,
+    GeneralSubmissionComponent
   ],
   imports: [
     BrowserModule,
