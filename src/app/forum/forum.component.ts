@@ -56,7 +56,7 @@ export class ForumComponent implements OnInit {
   searchEntries = function (keyword) {  
     this.searchResultsArray = [];
     var stage = []; this.isSearch = true; this.selectedKeyword = keyword;
-    this.http.get("http://18.221.222.34/forum").subscribe(
+    this.http.get("http://v4k-json-service.vanilla4kink.com/forum").subscribe(
       (res: Response) => {
         stage = res.json();
         for (var i in stage) {
@@ -78,7 +78,7 @@ export class ForumComponent implements OnInit {
   }
 
   fetchResultsData = function(){
-    this.http.get("http://18.221.222.34/forum").subscribe(
+    this.http.get("http://v4k-json-service.vanilla4kink.com/forum").subscribe(
       (res: Response) => {
         this.resultsArray = res.json(); this.loadTags(this.resultsArray);this.fetchNewest(this.resultsArray);
       }
@@ -116,7 +116,7 @@ export class ForumComponent implements OnInit {
     "title" : thread.title,
     "tag": thread.tag
     }
-    this.http.post("http://18.221.222.34/forum", this.threadObj, {headers: {
+    this.http.post("http://v4k-json-service.vanilla4kink.com/forum", this.threadObj, {headers: {
       'Content-Type': 'application/json' , 
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',

@@ -38,7 +38,7 @@ export class AddCommentComponent implements OnInit {
     "memberStatus" : this.userData.memberStatus,
     "comment": comment.comment
     }
-    this.http.post("http://18.221.222.34/comments", this.commentObj, {headers: {
+    this.http.post("http://v4k-json-service.vanilla4kink.com/comments", this.commentObj, {headers: {
       'Content-Type': 'application/json' , 
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
@@ -64,7 +64,7 @@ export class AddCommentComponent implements OnInit {
   {
     const cId = this.componentId;
     const pId = this.postedArticleId;
-    this.http.get("http://18.221.222.34/comments").subscribe(
+    this.http.get("http://v4k-json-service.vanilla4kink.com/comments").subscribe(
       (res: Response) => {
         var filter = _.filter(res.json(), function (results)
         { return results.component === cId && results.contentId === pId })

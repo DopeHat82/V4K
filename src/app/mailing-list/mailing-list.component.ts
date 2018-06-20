@@ -17,7 +17,7 @@ export class MailingListComponent implements OnInit {
     this.addMailingObj = {
     "email" : appData.newEmail
     }
-    this.http.post("http://18.221.222.34/mailingList", this.addMailingObj, {headers: {
+    this.http.post("http://v4k-json-service.vanilla4kink.com/mailingList", this.addMailingObj, {headers: {
       'Content-Type': 'application/json' , 
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',

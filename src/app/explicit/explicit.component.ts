@@ -211,7 +211,6 @@ hiTCnt = '';
     var filter = _.filter(this.resultsArray, function (results)
     { return results.genre === genre && results.threshold === threshold && results.type === type})
     this.pageArray = filter; this.collectionSize = 0;  this.collectionSize = this.pageArray.length / 30 * 10;
-    console.log(this.collectionSize + "   -    " + this.currentPage + "   -    " + this.pageArray.length)
     return this.pageArray.slice((this.currentPage-1)*30,this.currentPage*30); 
     
     }

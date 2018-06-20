@@ -40,7 +40,7 @@ newSexActSuccess : "Submit a new Sex Act";
   authUser = function(authData)
   {
     
-    this.http.get("http://18.221.222.34/users").subscribe(
+    this.http.get("http://v4k-json-service.vanilla4kink.com/users").subscribe(
       (res: Response) => {
         var filter = _.filter(res.json(), function (results)
         { return results.userName === authData.username && results.password === authData.password })
@@ -60,7 +60,7 @@ newSexActSuccess : "Submit a new Sex Act";
     "email" : appData.email,
     "isApproved" : false
     }
-    this.http.post("http://18.221.222.34/applicants", this.applicantObj, {headers: {
+    this.http.post("http://v4k-json-service.vanilla4kink.com/applicants", this.applicantObj, {headers: {
       'Content-Type': 'application/json' , 
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
@@ -85,7 +85,7 @@ newSexActSuccess : "Submit a new Sex Act";
 
    recentActivity=[];
    fetchRecentActivity = function(){
-      this.http.get("http://18.221.222.34/recentactivity").subscribe(
+      this.http.get("http://v4k-json-service.vanilla4kink.com/recentactivity").subscribe(
         (res: Response) => {
           this.recentActivity= res.json(); 
           this.mediaSwitch = "true"; 
@@ -99,7 +99,7 @@ newSexActSuccess : "Submit a new Sex Act";
       this.addActivityObj = {
       "description" : appData.newActivity 
       }
-      this.http.post("http://18.221.222.34/recentactivity", this.addActivityObj, {headers: {
+      this.http.post("http://v4k-json-service.vanilla4kink.com/recentactivity", this.addActivityObj, {headers: {
         'Content-Type': 'application/json' , 
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
@@ -114,7 +114,7 @@ newSexActSuccess : "Submit a new Sex Act";
 
     theNews=[];
     fetchNews = function(){
-       this.http.get("http://18.221.222.34/news").subscribe(
+       this.http.get("http://v4k-json-service.vanilla4kink.com/news").subscribe(
          (res: Response) => {
            this.theNews= res.json(); 
            this.mediaSwitch = "true"; 
@@ -130,7 +130,7 @@ newSexActSuccess : "Submit a new Sex Act";
        "description" : appData.newArticle,
        "timestamp" : (new Date).toLocaleDateString().toString()
        }
-       this.http.post("http://18.221.222.34/news", this.addNewsObj, {headers: {
+       this.http.post("http://v4k-json-service.vanilla4kink.com/news", this.addNewsObj, {headers: {
          'Content-Type': 'application/json' , 
          'Access-Control-Allow-Origin': '*',
          'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
@@ -150,7 +150,7 @@ newSexActSuccess : "Submit a new Sex Act";
        "description" : appData.newBlogArticle,
        "timestamp" : (new Date).toLocaleDateString().toString()
        }
-       this.http.post("http://18.221.222.34/submissions", this.addNewBlogObj, {headers: {
+       this.http.post("http://v4k-json-service.vanilla4kink.com/submissions", this.addNewBlogObj, {headers: {
          'Content-Type': 'application/json' , 
          'Access-Control-Allow-Origin': '*',
          'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
@@ -170,7 +170,7 @@ newSexActSuccess : "Submit a new Sex Act";
        "description" : appData.newSexActArticle,
        "timestamp" : (new Date).toLocaleDateString().toString()
        }
-       this.http.post("http://18.221.222.34/submissions", this.addNewBlogObj, {headers: {
+       this.http.post("http://v4k-json-service.vanilla4kink.com/submissions", this.addNewBlogObj, {headers: {
          'Content-Type': 'application/json' , 
          'Access-Control-Allow-Origin': '*',
          'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',

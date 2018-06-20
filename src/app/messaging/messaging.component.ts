@@ -41,7 +41,7 @@ export class MessagingComponent implements OnInit {
 
 
   loadMembersStagingArray = function(){
-    this.http.get("http://18.221.222.34/users").subscribe(
+    this.http.get("http://v4k-json-service.vanilla4kink.com/users").subscribe(
       (res: Response) => {
         this.stageArray= res.json(); this.loadMembersArray(this.stageArray);        
       }
@@ -56,7 +56,7 @@ export class MessagingComponent implements OnInit {
     "message" : appData.message,
     "timestamp" : (new Date).toLocaleDateString().toString() + " " + (new Date).toLocaleTimeString().toString()
     }
-    this.http.post("http://18.221.222.34/messages", this.messageObj, {headers: {
+    this.http.post("http://v4k-json-service.vanilla4kink.com/messages", this.messageObj, {headers: {
       'Content-Type': 'application/json' , 
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
@@ -77,7 +77,7 @@ export class MessagingComponent implements OnInit {
   { var user = this.userData.userName;
     const cId = this.componentId;
     const pId = this.postedArticleId;
-    this.http.get("http://18.221.222.34/messages").subscribe(
+    this.http.get("http://v4k-json-service.vanilla4kink.com/messages").subscribe(
       (res: Response) => {
         var filter = _.filter(res.json(), function (results)
         { return results.to === user})
