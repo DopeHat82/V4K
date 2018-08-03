@@ -145,6 +145,7 @@ newSexActSuccess : "Submit a new Sex Act";
      addNewBlog = function(appData){
        
        this.addNewBlogObj = {
+       "type" : 'blog',
        "submittedBy" : this.userData.userName,
        "title" : appData.newBlogTitle,
        "description" : appData.newBlogArticle,
@@ -165,6 +166,7 @@ newSexActSuccess : "Submit a new Sex Act";
      addNewSexAct = function(appData){
        
        this.addNewBlogObj = {
+       "type" : "sexAct",
        "submittedBy" : this.userData.userName,
        "title" : appData.newSexActTitle,
        "description" : appData.newSexActArticle,
@@ -180,6 +182,8 @@ newSexActSuccess : "Submit a new Sex Act";
    
        }) 
      }
+
+
 
   ngOnInit() {
     this.isAuthenticated(); this.fetchReleveantAds(); this.fetchRecentActivity(); this.fetchNews();this.populateTitles();

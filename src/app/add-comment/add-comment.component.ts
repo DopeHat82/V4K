@@ -88,8 +88,10 @@ titleToggle = function(cnt){
  
   if(componentTitle == "Blog"){this.titleOpen = "View all " + cnt + " comments";}
 
-  if(componentTitle == "Sexplore"){this.titleOpen = "Show all " + cnt + " Comments and Stories from Contributors and Member";}
-      
+  if(componentTitle == "Sexplore"){this.titleOpen = "Show all " + cnt + " Comments and Stories from Contributors and Members";}
+   
+  if(componentTitle == "Community"){this.titleOpen = "Show all " + cnt + " Comments and Stories from Contributors and Members";}
+  
  
     
 
@@ -97,7 +99,7 @@ titleToggle = function(cnt){
 
   if(this.titleOpen === "View all " + cnt + " comments"){this.titleClose = "Hide all comments";}
 
-  if(this.titleOpen === "Show all " + cnt + " Comments and Stories from Contributors and Member") {this.titleClose = "Hide Comments and Stories from Contributors and Members";}
+  if(this.titleOpen === "Show all " + cnt + " Comments and Stories from Contributors and Members") {this.titleClose = "Hide Comments and Stories from Contributors and Members";}
   
 
 }

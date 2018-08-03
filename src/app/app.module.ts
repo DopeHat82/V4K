@@ -22,6 +22,9 @@ import { MessagingComponent } from './messaging/messaging.component';
 import {OrderPipe} from '../assets/services/orderby';
 import { ForumComponent } from './forum/forum.component';
 import { GeneralSubmissionComponent } from './general-submission/general-submission.component';
+import { MemberActivityComponent } from './member-activity/member-activity.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { RatingsComponent } from './ratings/ratings.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { GeneralSubmissionComponent } from './general-submission/general-submiss
     MessagingComponent,
     OrderPipe,
     ForumComponent,
-    GeneralSubmissionComponent
+    GeneralSubmissionComponent,
+    MemberActivityComponent,
+    RatingsComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,7 @@ import { GeneralSubmissionComponent } from './general-submission/general-submiss
     HttpModule,
     FormsModule,
     HttpClientModule,
+    AngularFontAwesomeModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
      {path: "", component: HomeComponent}
@@ -58,4 +64,5 @@ import { GeneralSubmissionComponent } from './general-submission/general-submiss
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

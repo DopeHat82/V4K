@@ -99,23 +99,29 @@
 </div>
 <div *ngIf="userData.userName" class="container-fluid" style="height:100%;">
         <div class="row" style=" height:100%; padding:0px 0px 0px 0px;">
-                <div class="col-md-2" style="border-right:1px solid pink; height:100%;padding:0px 0px 0px 0px;">
-                                <div class="col-md-12" style="text-align:center; padding-top:10px;padding-bottom:10px;color:#C60000;"> Welcome {{userData.userName}}!</div>
+                        <div class="col-md-12" style="text-align:center; padding-top:10px;padding-bottom:10px;color:#C60000; display:none;"> Welcome {{userData.userName}}!</div>
+                <div class="col-md-1" style="border-right:1px solid pink; height:100%;padding:0px 0px 0px 0px; max-width:55px;">
+                                
                                 <div class="col-md-12" style="background-color:white;margin:0px 0px 0px 0px; padding:0px 0px 0px 0px;" >
                      
 
-                                <div id="homeBtn" onclick="onMemberMenuClick('main', 'homeBtn');" class="menuItem active" style="border-top:1px solid pink;" >Home</div>
-                                <div id="messageBtn" onclick="onMemberMenuClick('messages', 'messageBtn');" class="menuItem">Messages </div>
-                                <div id="SASABtn" onclick="onMemberMenuClick('newSexAct', 'SASABtn');"  class="menuItem">Submit a SexAct</div>
-                                <div id="SABPBtn" onclick="onMemberMenuClick('newBlog', 'SABPBtn');"  class="menuItem">Submit a Blog Post</div>
-                                <div id="logoutBtn" (click)="logout()" class="menuItem">Logout</div>
+                                <div id="homeBtn" ngbPopover="Home" triggers="mouseenter:mouseleave" placement="right" onclick="onMemberMenuClick('main', 'homeBtn');" class="menuItem active" style="border-top:1px solid pink;" ><fa name="home" ></fa></div>
+                                <div id="messageBtn" ngbPopover="Messages" triggers="mouseenter:mouseleave" placement="right" onclick="onMemberMenuClick('messages', 'messageBtn');" class="menuItem"><fa name="comments" ></fa></div>
+                                <div id="membersBtn" ngbPopover="Community" triggers="mouseenter:mouseleave" placement="right" onclick="onMemberMenuClick('membersActivity', 'membersBtn');" class="menuItem" ><fa name="users" ></fa></div>
+                                <div id="SASABtn" ngbPopover="Submit a Sex Act"  triggers="mouseenter:mouseleave" placement="right" onclick="onMemberMenuClick('newSexAct', 'SASABtn');"  class="menuItem" popoverClass="my-custom-class"><fa name="heart" ></fa></div>
+                                <div id="SABPBtn" ngbPopover="Submit a Blog Post"  triggers="mouseenter:mouseleave" placement="right" onclick="onMemberMenuClick('newBlog', 'SABPBtn');"  class="menuItem"><fa name="align-left" ></fa></div>
+                                <div id="logoutBtn" ngbPopover="Logout. Good Bye!" triggers="mouseenter:mouseleave" placement="right" (click)="logout()" class="menuItem"><fa name="sign-out" ></fa></div>
                                    
                                 </div>
                 </div>
-                <div id="newSexAct" class="col-md-10" style="display:none;">
+                <div id="membersActivity" class="col-md-11" style="display:none;">
+                                <app-member-activity></app-member-activity>
+
+                </div>
+                <div id="newSexAct" class="col-md-11" style="display:none;">
                                 <form id="newSexAct" name="newSexAct" #newSexAct="ngForm" (ngSubmit)="addNewSexAct(newSexAct.value)">
                                                 <div class="row">
-                                                                <div class="col-md-12 formHeading" >{{this.newSexActSuccess}}</div>
+                                                                <div class="col-md-12 contentHeader"><fa name="heart" ></fa><span class="contentTitle">{{this.newSexActSuccess}}</span></div>
                                                         <div class="col-md-12" style="padding-top:20px;">
                                                           <input type="text" placeholder="What do you call this Sex Act?" id="newSexActTitle" name="newSexActTitle" [(ngModel)]="modelNTBa" class="form-control"
                                                                                         #newSexActTitle/>
@@ -125,17 +131,17 @@
                                                                         #newSexActArticle></textarea>
                                                         </div>
                                                         <div class="col-md-12" style="padding-top:20px;">
-                                                                <input type="submit" (click)="newSexActArticle.value='';newSexActTitle.value='';" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Submit for Review" />
+                                                                <input type="submit" (click)="newSexActArticle.value='';newSexActTitle.value='';" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Post to Community for Review" />
                                                         </div>
                                                 </div>
                                         </form>
 
 
                 </div>
-                <div id="newBlog" class="col-md-10" style="display:none;">
+                <div id="newBlog" class="col-md-11" style="display:none;">
                                 <form id="newBlogPost" name="newBlogPost" #newBlogPost="ngForm" (ngSubmit)="addNewBlog(newBlogPost.value)">
                                                 <div class="row">
-                                                                <div class="col-md-12 formHeading" >{{newBlogSuccess}}</div>
+                                                                <div class="col-md-12 contentHeader"><fa name="align-left" ></fa><span class="contentTitle">{{newBlogSuccess}}</span></div>
                                                         <div class="col-md-12" style="padding-top:20px;">
                                                           <input type="text" placeholder="Add a title" id="newBlogTitle" name="newBlogTitle" [(ngModel)]="modelNTB" class="form-control"
                                                                                         #newBlogTitle/>
@@ -145,18 +151,18 @@
                                                                         #newBlogArticle></textarea>
                                                         </div>
                                                         <div class="col-md-12" style="padding-top:20px;">
-                                                                <input type="submit" (click)="newBlogArticle.value='';newBlogTitle.value='';" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Submit for Review" />
+                                                                <input type="submit" (click)="newBlogArticle.value='';newBlogTitle.value='';" class="btn btn-outline-primary sexploreDropdown" style="width:100%;" value="Post to Community" />
                                                         </div>
                                                 </div>
                                         </form>
 
 
                 </div>
-                <div id="messages" class="col-md-10" style=" display:none;">
+                <div id="messages" class="col-md-11" style=" display:none;">
                                 <app-messaging></app-messaging>
                 </div>
                 
-                <div id="main" class="col-md-10">
+                <div id="main" class="col-md-11">
                                 
                         <div class="col-md-12" style="padding-bottom:45px;padding-top:20px;">
                                 <div style="border-bottom:1px solid pink"> Today's offers</div>
@@ -197,7 +203,7 @@
                                 </div>
                                 <div style="font-size:11pt;">
                                         <ul  style="padding-top:10px;">
-                                                <li *ngFor="let ra of recentActivity" style="padding-left:8px;  padding-right:8px;font-size:11pt;">
+                                                <li *ngFor="let ra of recentActivity | orderBy: reverse : true" style="padding-left:8px;  padding-right:8px;font-size:11pt;">
 
 
                                                         {{ra.description}}
@@ -236,7 +242,7 @@
         
                                         </div>
                                 <div class="col-md-12" >
-                                                <div *ngFor="let article of theNews" style="padding-left:8px; padding-right:8px;font-size:11pt;">
+                                                <div *ngFor="let article of theNews | orderBy: reverse : true" style="padding-left:8px; padding-right:8px;font-size:11pt;">
                                                         <div class="row" style=" padding-top:8px;  padding-bottom:8px;">
                                                                 <div class="col-md-12 ">
                                                                         <span style="color:blue;"><strong>{{article.title}}</strong></span > <span style="font-size:9pt;float:right;"><em>{{article.timestamp}}</em></span>

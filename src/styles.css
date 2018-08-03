@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+.popover { width: 200px !important; }
+.contentHeader{
+    border-bottom:1px solid pink; font-size:25pt;
+}
+.contentTitle{
+    font-size:18pt;
+}

@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-12 contentHeader">
+    <fa name="users"></fa> <span class="contentTitle">Community</span>
+    <span *ngIf="toggle == 'F'" style="font-style:italic; color:gray; font-size:11pt; ">What's everyone up to?</span>
+    <span *ngIf="toggle == 'T'" style="font-style:italic; color:gray; font-size:11pt; ">{{toggleMsg}} <a  (click)="getSubmissions();" style="color:blue; cursor:pointer;">(show all users)</a></span>
+  </div>
+
+  <div class="row" id="memberList" style="display:none;">
+    <div *ngFor="let member of membersList" class="col-md-1" style="min-width:150px;">
+      <div class="membersProfileContainer">
+        <div class="header">{{member.userName}}</div>
+        <div style="text-align:center;">
+          <img *ngIf="member.type == 'Kink'" src="../assets/Images/avatar-kink.jpg" alt="" />
+          <img *ngIf="member.type == 'Vanilla'" src="../assets/Images/avatar-vanilla.jpg" alt="" /></div>
+        <div *ngIf="member.type == 'Kink'" class="footer" style="color:#333333;">Kink</div>
+        <div *ngIf="member.type == 'Vanilla'" class="footer" style="color:white">Vanilla</div>
+      </div>
+    </div>
+  </div>
+
+<div class="row" id="memberSubmissionsContainer" style="width:100%;" >
+  <div *ngFor="let submission of memberSubmissions | orderBy: reverse : true" class="col-md-12" style="padding-bottom:25px;" >
+    <div class="col-md-12" style="border-bottom:2px solid pink;" >
+        <fa *ngIf="submission.type == 'blog'" title="Blog Post" name="align-left" ></fa> <fa *ngIf="submission.type == 'sexAct'" title="Sex Act Post" name="heart" ></fa><strong>{{submission.title}}</strong>  
+      <span style="color:#333333; font-size:9pt;">By: <a (click)="getSubmissionsByUser(submission.submittedBy);" style="cursor:pointer;color:blue;">{{submission.submittedBy}}</a></span>
+      <span *ngIf="submission.type == 'sexAct'">
+         <app-ratings [componentId]="'Community'" [postedArticleId]="submission.id" ></app-ratings>
+        </span>
+    </div>
+    <div class="col-md-12" onclick="this.style.height=''; this.style.cursor='default';" style="height:150px; overflow-x:auto;cursor:pointer;">{{submission.description}}</div>
+    <app-add-comment [componentId]="'Community'" [postedArticleId]="submission.id" ></app-add-comment>
+  </div>
+</div>
+
+</div>
